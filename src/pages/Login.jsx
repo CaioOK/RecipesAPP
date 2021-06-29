@@ -37,6 +37,13 @@ function Login() {
     }
   };
 
+  const handleClick = () => {
+    setEmail('');
+    setPassword('');
+    localStorage.setItem('mealsToken', 1);
+    localStorage.setItem('cocktailsToken', 1);
+  };
+
   return (
     <form>
       <label htmlFor="email">
@@ -59,7 +66,13 @@ function Login() {
           onChange={ handleChange }
         />
       </label>
-      <button type="button" data-testid="login-submit-btn">Entrar</button>
+      <button
+        type="button"
+        data-testid="login-submit-btn"
+        onClick={ handleClick }
+      >
+        Entrar
+      </button>
     </form>
   );
 }
