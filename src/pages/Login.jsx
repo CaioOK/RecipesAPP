@@ -38,10 +38,14 @@ function Login() {
   };
 
   const handleClick = () => {
-    setEmail('');
-    setPassword('');
+    const userEmail = JSON.stringify({ email });
+
+    localStorage.setItem('user', userEmail);
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', 1);
+
+    setEmail('');
+    setPassword('');
   };
 
   return (
