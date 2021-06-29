@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+// import { Redirect } from 'react-router-dom';
 
-function Login() {
+function Login({ history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -46,6 +48,7 @@ function Login() {
 
     setEmail('');
     setPassword('');
+    history.push('/comidas');
   };
 
   return (
@@ -80,5 +83,9 @@ function Login() {
     </form>
   );
 }
+
+Login.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Login;
