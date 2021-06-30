@@ -1,12 +1,11 @@
 import React from 'react';
 
-
 // limpar css, flex row, img
 function Footer() {
   return (
     <footer data-testid="footer">
       <button data-testid="drinks-bottom-btn" type="button">
-        <img src=""/>
+        <img src="" alt="img" />
         Drinks
       </button>
       <button data-testid="explore-bottom-btn" type="button">
@@ -16,7 +15,7 @@ function Footer() {
         Foods
       </button>
     </footer>
-  )
+  );
 }
 
 export default Footer;
