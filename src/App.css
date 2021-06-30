@@ -66,3 +66,13 @@
     transform: rotate(-10deg);
   }
 }
+
+footer {
+  bottom: 0;
+  position: fixed;
+}
+
+img {
+  height: 5rem;
+  margin: 1rem 1.2rem;
+}
