@@ -13,7 +13,7 @@ function Foods() {
   console.log(meals);
   return (
     <div>
-      <Header />
+      <Header pageTitle="Comidas" searchFeat />
       <h1>Olá eu sou a pagina de Comida</h1>
       {meals.map((meal, index) => (
         <RecipeCard
