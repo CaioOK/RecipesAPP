@@ -5,6 +5,7 @@ function SearchBar() {
   const [radioType, setRadioType] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const { setMealsUrl } = useContext(MyContext);
+  const { alert } = window;
 
   const handleApiRequest = (type, value) => {
     switch (type) {
@@ -13,7 +14,7 @@ function SearchBar() {
       break;
     case 'letter': {
       if (searchValue.length !== 1) {
-        window.alert('Sua busca deve conter somente 1 (um) caracter');
+        alert('Sua busca deve conter somente 1 (um) caracter');
       }
       setMealsUrl(`https://www.themealdb.com/api/json/v1/1/search.php?f=${value}`);
       break;
