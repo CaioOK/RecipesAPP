@@ -1,6 +1,6 @@
 async function fetchMeals(apiUrl) {
   const response = await fetch(apiUrl);
-  const data = await response.json();
+  const data = await response.clone().json();
   return data;
 }
 
