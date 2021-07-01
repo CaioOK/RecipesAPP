@@ -14,7 +14,6 @@ function Drinks({ history }) {
   return (
     <div>
       <Header pageTitle="Bebidas" searchFeat />
-      <h1>Olá eu sou a pagina de Drinks</h1>
       {drinks.map((drink, index) => (
         <RecipeCard
           key={ index }
