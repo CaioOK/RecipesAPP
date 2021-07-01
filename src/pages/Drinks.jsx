@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
+import Footer from '../components/Footer';
 
 function Drinks({ history }) {
   const { drinks } = useContext(MyContext);
@@ -21,6 +22,7 @@ function Drinks({ history }) {
           name={ drink.strDrink }
           index={ index }
         />))}
+      <Footer />
     </div>
   );
 }

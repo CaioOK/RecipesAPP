@@ -4,7 +4,7 @@ import MyContext from './MyContext';
 import fetchMeals from '../services/fetchMeals';
 
 function Provider({ children }) {
-  const initialMealsUrl = 'https://www.themealdb.com/api/json//1/search.php?s=';
+  const initialMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const initialDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
   const [meals, setMeals] = useState([]);
   const [drinks, setDrinks] = useState([]);

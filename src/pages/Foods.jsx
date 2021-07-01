@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
 import MyContext from '../contexts/MyContext';
+import Footer from '../components/Footer';
 
 function Foods({ history }) {
   const { meals, setMealsUrl } = useContext(MyContext);
@@ -47,6 +48,7 @@ function Foods({ history }) {
           name={ meal.strMeal }
           index={ index }
         />))}
+      <Footer />
     </div>
   );
 }
