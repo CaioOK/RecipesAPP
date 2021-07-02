@@ -141,3 +141,36 @@
   border: 0px solid transparent;
   text-shadow: 0px 0px 0px transparent;
 }
+
+.section {
+  border-top: 3px solid black;
+  display: flex;
+  height: 150px;
+  max-width: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  text-align: center;
+  flex-direction: column;
+  margin: 0.5rem;
+
+}
+
+.sectionImg {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.sectionText {
+  margin-top: 10%;
+  font-size: 1rem;
+  display: flex;
+  height: 50%;
+  margin-left: 1.5rem;
+}
+
+.master {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 360px;
+}

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
 import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
+import '../App.css';
 
 function Foods({ history }) {
   const { meals, setUserPage } = useContext(MyContext);
@@ -21,13 +22,15 @@ function Foods({ history }) {
   return (
     <div>
       <Header pageTitle="Comidas" searchFeat />
-      {meals.map((meal, index) => (
-        <RecipeCard
-          key={ index }
-          imgUrl={ meal.strMealThumb }
-          name={ meal.strMeal }
-          index={ index }
-        />))}
+      <div className="master">
+        {meals.map((meal, index) => (
+          <RecipeCard
+            key={ index }
+            imgUrl={ meal.strMealThumb }
+            name={ meal.strMeal }
+            index={ index }
+          />))}
+      </div>
       <Footer />
     </div>
   );
