@@ -76,3 +76,28 @@ img {
   height: 5rem;
   margin: 1rem 1.2rem;
 }
+
+/* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
+.login {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 200px;
+}
+
+.input {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: none;
+  height: 50px;
+  border-bottom: 1px solid black;
+  width: 100%;
+  background-color: rgb(173, 173, 173);
+  color: black;
+}
+
+.label {
+  border: 2px solid rgb(173, 173, 173);
+  border-radius: 10px;
+  width: 100%;
+}
