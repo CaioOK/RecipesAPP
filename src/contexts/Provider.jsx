@@ -10,6 +10,7 @@ function Provider({ children }) {
   const [drinks, setDrinks] = useState([]);
   const [mealsUrl, setMealsUrl] = useState(initialMealsUrl);
   const [drinksUrl, setDrinksUrl] = useState(initialDrinksUrl);
+  const [userPage, setUserPage] = useState('');
 
   useEffect(() => {
     const getMeals = async () => {
@@ -36,7 +37,17 @@ function Provider({ children }) {
   }, [drinksUrl]);
 
   return (
-    <MyContext.Provider value={ { meals, setMealsUrl, drinks, setDrinksUrl } }>
+    <MyContext.Provider
+      value={
+        {
+          meals,
+          setMealsUrl,
+          drinks,
+          setDrinksUrl,
+          userPage,
+          setUserPage }
+      }
+    >
       { children }
     </MyContext.Provider>
   );
