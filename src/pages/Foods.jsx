@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
@@ -6,7 +6,14 @@ import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 
 function Foods({ history }) {
-  const { meals } = useContext(MyContext);
+  const { meals, setUserPage } = useContext(MyContext);
+
+  useEffect(() => {
+    const setPage = () => {
+      setUserPage('Foods');
+    };
+    setPage();
+  }, [setUserPage]);
 
   if (meals.length === 0) return <h3>Nada encontrado!</h3>;
   if (meals.length === 1) history.push(`/comidas/${meals[0].idMeal}`);

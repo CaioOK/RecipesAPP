@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function FoodOrigin() {
   return (
     <div>
       <Header pageTitle="Explorar Origem" searchFeat />
-      <h1>Olá eu sou a pagina de Explorar Origem</h1>
+      <Footer />
     </div>
   );
 }

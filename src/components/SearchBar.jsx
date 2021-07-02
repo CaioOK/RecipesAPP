@@ -4,10 +4,10 @@ import MyContext from '../contexts/MyContext';
 function SearchBar() {
   const [radioType, setRadioType] = useState('');
   const [searchValue, setSearchValue] = useState('');
-  const { setMealsUrl } = useContext(MyContext);
+  const { setMealsUrl, setDrinksUrl, userPage } = useContext(MyContext);
   const { alert } = window;
 
-  const handleApiRequest = (type, value) => {
+  const handleFoodsApiRequest = (type, value) => {
     switch (type) {
     case 'ingredient':
       setMealsUrl(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${value}`);
@@ -27,8 +27,33 @@ function SearchBar() {
     }
   };
 
+  const handleDrinkssApiRequest = (type, value) => {
+    switch (type) {
+    case 'ingredient':
+      setDrinksUrl(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${value}`);
+      break;
+    case 'letter': {
+      if (searchValue.length !== 1) {
+        alert('Sua busca deve conter somente 1 (um) caracter');
+      }
+      setDrinksUrl(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${value}`);
+      break;
+    }
+    case 'name':
+      setDrinksUrl(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`);
+      break;
+    default:
+      break;
+    }
+  };
+
   const handleClick = () => {
-    handleApiRequest(radioType, searchValue);
+    if (userPage === 'Foods') {
+      handleFoodsApiRequest(radioType, searchValue);
+    }
+    if (userPage === 'Drinks') {
+      handleDrinkssApiRequest(radioType, searchValue);
+    }
   };
 
   return (

@@ -1,12 +1,19 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
 
 function Drinks({ history }) {
-  const { drinks } = useContext(MyContext);
+  const { drinks, setUserPage } = useContext(MyContext);
+
+  useEffect(() => {
+    const setPage = () => {
+      setUserPage('Drinks');
+    };
+    setPage();
+  }, [setUserPage]);
 
   if (drinks.length === 0) return <h3>Nada encontrado!</h3>;
   if (drinks.length === 1) history.push(`/comidas/${drinks[0].idDrink}`);
