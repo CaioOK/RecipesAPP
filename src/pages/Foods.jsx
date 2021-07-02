@@ -43,6 +43,7 @@ function Foods({ history }) {
       </button>
       {meals.map((meal, index) => (
         <RecipeCard
+          meal={ meal }
           key={ index }
           imgUrl={ meal.strMealThumb }
           name={ meal.strMeal }
