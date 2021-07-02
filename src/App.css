@@ -81,9 +81,9 @@
 
 .footerIcon {
   height: 2.5rem;
-  width: 3rem;
   margin: 0;
   padding: 0;
+  width: 3rem;
 }
 
 /* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
@@ -134,17 +134,17 @@
   margin-left: 1.5rem;
 }
 
-.headerButton{
+.headerButton {
   background: transparent;
-  box-shadow: none;
   border: none;
+  box-shadow: none;
   text-shadow: none;
 }
 
 .section {
-  border-top: 3px solid black;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-top: 3px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   height: 150px;
@@ -161,8 +161,8 @@
 
 .sectionText {
   display: flex;
-  height: 50%;
   font-size: 1rem;
+  height: 50%;
   margin-left: 1.5rem;
   margin-top: 10%;
 }
