@@ -21,13 +21,15 @@ function Drinks({ history }) {
   return (
     <div>
       <Header pageTitle="Bebidas" searchFeat />
-      {drinks.map((drink, index) => (
-        <RecipeCard
-          key={ index }
-          imgUrl={ drink.strDrinkThumb }
-          name={ drink.strDrink }
-          index={ index }
-        />))}
+      <div className="master">
+        {drinks.map((drink, index) => (
+          <RecipeCard
+            key={ index }
+            imgUrl={ drink.strDrinkThumb }
+            name={ drink.strDrink }
+            index={ index }
+          />))}
+      </div>
       <Footer />
     </div>
   );
