@@ -67,14 +67,24 @@
   }
 }
 
-footer {
+.footer {
+  background-color: pink;
+  height: 3.5rem;
   bottom: 0;
   position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-img {
-  height: 5rem;
-  margin: 1rem 1.2rem;
+.footerIcon {
+  height: 2.5rem;
+  width: 3rem;
+  margin: 0;
+  padding: 0;
+
 }
 
 /* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
@@ -92,12 +102,12 @@ img {
   height: 50px;
   border-bottom: 1px solid black;
   width: 100%;
-  background-color: rgb(173, 173, 173);
+  background-color: pink;
   color: black;
 }
 
 .label {
-  border: 2px solid rgb(173, 173, 173);
+  border: 2px solid pink;
   border-radius: 10px;
   width: 100%;
 }
