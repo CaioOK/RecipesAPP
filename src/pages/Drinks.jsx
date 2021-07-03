@@ -23,6 +23,7 @@ function Drinks({ history }) {
       <Header pageTitle="Bebidas" searchFeat />
       {drinks.map((drink, index) => (
         <RecipeCard
+          drink={ drink }
           key={ index }
           imgUrl={ drink.strDrinkThumb }
           name={ drink.strDrink }

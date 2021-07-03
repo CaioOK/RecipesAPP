@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function RecipeCard({ imgUrl, name, index, meal }) {
+function RecipeCard({ imgUrl, name, index, meal, drink }) {
+  const recipe = drink || meal;
+  let path;
+  if (recipe === drink) path = `/bebidas/${recipe.idDrink}`;
+  else { path = `/comidas/${recipe.idMeal}`; }
+  console.log(recipe, path);
   return (
     <Link
-      to={ {
-        pathname: `/comidas/${meal.idMeal}`,
-        state: { meal } } }
+      to={ path }
       data-testid={ `${index}-recipe-card` }
     >
       <img
@@ -26,6 +29,7 @@ RecipeCard.propTypes = {
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   meal: PropTypes.shape({ idMeal: PropTypes.string }).isRequired,
+  drink: PropTypes.shape({ idDrink: PropTypes.string }).isRequired,
 };
 
 export default RecipeCard;
