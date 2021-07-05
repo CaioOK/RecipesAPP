@@ -175,17 +175,13 @@
 }
 
 .search {
-  position: absolute;
-  top: 55px;
-  background-color: pink;
   align-items: center;
+  background-color: pink;
   border-radius: 5px;
-  /* border-top: 3px solid black; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: inline;
-  /* height: 150px; */
-  /* margin: 0.5rem; */
-  width: 360px;
+  position: absolute;
   text-align: center;
-
+  top: 55px;
+  width: 360px;
 }
