@@ -6,20 +6,24 @@ import fetchMeals from '../services/fetchMeals';
 function Provider({ children }) {
   const initialMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const initialDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-  const [meals, setMeals] = useState([]);
-  const [drinks, setDrinks] = useState([]);
+  const [meals, setMeals] = useState(['', '']);
+  const [drinks, setDrinks] = useState(['', '']);
   const [mealsUrl, setMealsUrl] = useState(initialMealsUrl);
   const [drinksUrl, setDrinksUrl] = useState(initialDrinksUrl);
   const [userPage, setUserPage] = useState('');
+  const [noResultsFound, setNoResultsFound] = useState(false);
 
   useEffect(() => {
     const getMeals = async () => {
       const quantity = 12;
       const mealsResponse = await fetchMeals(mealsUrl);
+      if (!mealsResponse.meals) {
+        setNoResultsFound(true);
+        return;
+      }
       const twelveMeals = mealsResponse.meals.filter((_meal, index) => index < quantity);
       setMeals(twelveMeals);
     };
-
     getMeals();
   }, [mealsUrl]);
 
@@ -27,6 +31,10 @@ function Provider({ children }) {
     const getDrinks = async () => {
       const quantity = 12;
       const drinksResponse = await fetchMeals(drinksUrl);
+      if (!drinksResponse.drinks) {
+        setNoResultsFound(true);
+        return;
+      }
       const twelveDrinks = drinksResponse.drinks.filter((_drink, index) => (
         index < quantity));
 
@@ -45,7 +53,9 @@ function Provider({ children }) {
           drinks,
           setDrinksUrl,
           userPage,
-          setUserPage }
+          setUserPage,
+          noResultsFound,
+          setNoResultsFound }
       }
     >
       { children }
