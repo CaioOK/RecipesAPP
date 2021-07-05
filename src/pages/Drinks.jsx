@@ -26,7 +26,7 @@ function Drinks({ history }) {
 
   return (
     <div>
-      <Header pageTitle="Comidas" searchFeat />
+      <Header pageTitle="Bebidas" searchFeat />
       {
         (
           (!drinks.length) ? <h3>Nada encontrado!</h3>
