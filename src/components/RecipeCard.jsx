@@ -7,7 +7,7 @@ function RecipeCard({ imgUrl, name, index, meal, drink }) {
   let path;
   if (recipe === drink) path = `/bebidas/${recipe.idDrink}`;
   else { path = `/comidas/${recipe.idMeal}`; }
-  console.log(recipe, path);
+  // console.log(recipe, path);
   return (
     <Link
       to={ path }

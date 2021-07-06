@@ -23,7 +23,7 @@ function MockRecipeDetails() {
       </button>
       <h2>Ingredients</h2>
       <ol>
-        <li data-testid="1-ingredient-name-and-measure">
+        <li data-testid="0-ingredient-name-and-measure">
           Loading...
         </li>
       </ol>
