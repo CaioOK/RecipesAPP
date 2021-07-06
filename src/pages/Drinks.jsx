@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
@@ -8,7 +9,7 @@ import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
 
 function Drinks({ history }) {
-  const { drinks, setUserPage, noResultsFound, setNoResultsFound,
+  const { drinks, setUserPage, noResultsFound, setNoResultsFound, shouldRedirect,
   } = useContext(MyContext);
   const message = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   const { alert } = window;
@@ -34,7 +35,10 @@ function Drinks({ history }) {
     getCategories();
   }, []);
 
-  if (drinks.length === 1) history.push(`/bebidas/${drinks[0].idDrink}`);
+  if (drinks.length === 1 && shouldRedirect) {
+    history.push(`/bebidas/${drinks[0].idDrink}`);
+  }
+
   if (noResultsFound) {
     alert(message);
     setNoResultsFound(false);
@@ -48,13 +52,15 @@ function Drinks({ history }) {
         (
           (!drinks.length) ? <h3>Carregando...</h3>
             : drinks.map((drink, index) => (
-              <RecipeCard
-                drink={ drink }
-                key={ index }
-                imgUrl={ drink.strDrinkThumb }
-                name={ drink.strDrink }
-                index={ index }
-              />))
+              <Link key={ index } to={ `/bebidas/${drink.idDrink}` }>
+                <RecipeCard
+                  drink={ drink }
+                  imgUrl={ drink.strDrinkThumb }
+                  name={ drink.strDrink }
+                  index={ index }
+                />
+              </Link>
+            ))
         )
       }
       <Footer />

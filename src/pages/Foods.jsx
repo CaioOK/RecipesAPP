@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
 import MyContext from '../contexts/MyContext';
@@ -8,8 +9,8 @@ import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
 
 function Foods({ history }) {
-  const { meals, setUserPage, noResultsFound, setNoResultsFound,
-    shouldRedirect } = useContext(MyContext);
+  const { meals, setUserPage, noResultsFound, setNoResultsFound, shouldRedirect,
+  } = useContext(MyContext);
   const message = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
   const { alert } = window;
   const [categories, setCategories] = useState([]);
@@ -49,13 +50,15 @@ function Foods({ history }) {
         (
           (!meals.length) ? <h3>Carregando...</h3>
             : meals.map((meal, index) => (
-              <RecipeCard
-                meal={ meal }
-                key={ index }
-                imgUrl={ meal.strMealThumb }
-                name={ meal.strMeal }
-                index={ index }
-              />))
+              <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
+                <RecipeCard
+                  meal={ meal }
+                  imgUrl={ meal.strMealThumb }
+                  name={ meal.strMeal }
+                  index={ index }
+                />
+              </Link>
+            ))
         )
       }
       <Footer />
