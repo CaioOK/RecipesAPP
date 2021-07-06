@@ -41,7 +41,7 @@ describe('25 - Implemente os elementos da tela principal de receitas respeitando
         win.fetch = fetchMock;
       },
     });
-
+    console.log(window.fetch);
     for (let index = 0; index < 12; index += 1) {
       cy.get(`[data-testid="${index}-recipe-card"]`);
       cy.get(`[data-testid="${index}-card-img"]`);

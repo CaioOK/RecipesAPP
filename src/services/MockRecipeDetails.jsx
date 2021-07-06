@@ -36,7 +36,7 @@ function MockRecipeDetails() {
         data-testid="video"
         width="420"
         height="345"
-        src="Shttps://www.youtube.com/embed/VnZd8A84z4"
+        src="https://www.youtube.com/embed/IEDEtZ4UVtI"
       />
       <h2>Recommended</h2>
       <RecomendationCards />

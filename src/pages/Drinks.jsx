@@ -6,7 +6,10 @@ import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
 
 function Drinks({ history }) {
-  const { drinks, setUserPage } = useContext(MyContext);
+  const { drinks, setUserPage, noResultsFound, setNoResultsFound,
+  } = useContext(MyContext);
+  const message = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
+  const { alert } = window;
 
   useEffect(() => {
     const setPage = () => {
@@ -15,20 +18,28 @@ function Drinks({ history }) {
     setPage();
   }, [setUserPage]);
 
-  if (drinks.length === 0) return <h3>Nada encontrado!</h3>;
-  if (drinks.length === 1) history.push(`/comidas/${drinks[0].idDrink}`);
+  if (drinks.length === 1) history.push(`/bebidas/${drinks[0].idDrink}`);
+  if (noResultsFound) {
+    alert(message);
+    setNoResultsFound(false);
+  }
 
   return (
     <div>
       <Header pageTitle="Bebidas" searchFeat />
-      {drinks.map((drink, index) => (
-        <RecipeCard
-          drink={ drink }
-          key={ index }
-          imgUrl={ drink.strDrinkThumb }
-          name={ drink.strDrink }
-          index={ index }
-        />))}
+      {
+        (
+          (!drinks.length) ? <h3>Nada encontrado!</h3>
+            : drinks.map((drink, index) => (
+              <RecipeCard
+                drink={ drink }
+                key={ index }
+                imgUrl={ drink.strDrinkThumb }
+                name={ drink.strDrink }
+                index={ index }
+              />))
+        )
+      }
       <Footer />
     </div>
   );
