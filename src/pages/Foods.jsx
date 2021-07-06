@@ -6,7 +6,9 @@ import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 
 function Foods({ history }) {
-  const { meals, setUserPage } = useContext(MyContext);
+  const { meals, setUserPage, noResultsFound, setNoResultsFound } = useContext(MyContext);
+  const message = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
+  const { alert } = window;
 
   useEffect(() => {
     const setPage = () => {
@@ -15,19 +17,28 @@ function Foods({ history }) {
     setPage();
   }, [setUserPage]);
 
-  if (meals.length === 0) return <h3>Nada encontrado!</h3>;
   if (meals.length === 1) history.push(`/comidas/${meals[0].idMeal}`);
+
+  if (noResultsFound) {
+    alert(message);
+    setNoResultsFound(false);
+  }
 
   return (
     <div>
       <Header pageTitle="Comidas" searchFeat />
-      {meals.map((meal, index) => (
-        <RecipeCard
-          key={ index }
-          imgUrl={ meal.strMealThumb }
-          name={ meal.strMeal }
-          index={ index }
-        />))}
+      {
+        (
+          (!meals.length) ? <h3>Carregando...</h3>
+            : meals.map(({ strMealThumb = '', strMeal = '' }, index) => (
+              <RecipeCard
+                key={ index }
+                imgUrl={ strMealThumb }
+                name={ strMeal }
+                index={ index }
+              />))
+        )
+      }
       <Footer />
     </div>
   );

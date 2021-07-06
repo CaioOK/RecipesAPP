@@ -14,6 +14,7 @@ import ExplorerDrinks from './pages/ExplorerDrinks';
 import FoodIngredients from './pages/FoodIngredients';
 import DrinkIngredients from './pages/DrinkIngredients';
 import FoodOrigin from './pages/FoodOrigin';
+import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
       <Route exact path="/" component={ Login } />
       <Route exact path="/comidas" component={ Foods } />
       <Route exact path="/bebidas" component={ Drinks } />
-      <Route exact path="/comidas/:id" />
-      <Route exact path="/bebidas/:id" />
+      <Route exact path="/comidas/:id" component={ RecipeDetails } />
+      <Route exact path="/bebidas/:id" component={ RecipeDetails } />
       <Route exact path="/comidas/:id/in-progress" />
       <Route exact path="/bebidas/:id/in-progress" />
       <Route exact path="/explorar" component={ Explorer } />
