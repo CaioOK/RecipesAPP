@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { Redirect } from 'react-router-dom';
+import '../App.css';
 
 function Login({ history }) {
   const [email, setEmail] = useState('');
@@ -52,10 +53,11 @@ function Login({ history }) {
   };
 
   return (
-    <form>
+    <form className="login">
       <label htmlFor="email">
         Email
         <input
+          className="label"
           data-testid="email-input"
           id="email"
           type="text"
@@ -66,6 +68,7 @@ function Login({ history }) {
       <label htmlFor="password">
         Password
         <input
+          className="label"
           data-testid="password-input"
           id="password"
           type="password"
@@ -74,6 +77,7 @@ function Login({ history }) {
         />
       </label>
       <button
+        className="input"
         type="button"
         data-testid="login-submit-btn"
         onClick={ handleClick }

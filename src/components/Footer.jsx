@@ -7,16 +7,22 @@ import '../App.css';
 
 function Footer() {
   return (
-    <footer data-testid="footer">
-      <Link to="/bebidas">
-        <img data-testid="drinks-bottom-btn" src={ drinkIcon } alt="Drink Icon" />
-      </Link>
-      <Link to="/explorar">
-        <img data-testid="explore-bottom-btn" src={ exploreIcon } alt="Explore Icon" />
-      </Link>
-      <Link to="/comidas">
-        <img data-testid="food-bottom-btn" src={ mealIcon } alt="Meal Icon" />
-      </Link>
+    <footer className="footer" data-testid="footer">
+      <div className="footerIcon">
+        <Link to="/bebidas">
+          <img data-testid="drinks-bottom-btn" src={ drinkIcon } alt="Drink Icon" />
+        </Link>
+      </div>
+      <div className="footerIcon">
+        <Link to="/explorar">
+          <img data-testid="explore-bottom-btn" src={ exploreIcon } alt="Explore Icon" />
+        </Link>
+      </div>
+      <div className="footerIcon">
+        <Link to="/comidas">
+          <img data-testid="food-bottom-btn" src={ mealIcon } alt="Meal Icon" />
+        </Link>
+      </div>
     </footer>
   );
 }
