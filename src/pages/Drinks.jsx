@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
+import '../App.css';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
 
