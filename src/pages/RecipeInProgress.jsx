@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import genericFetch from '../services/genericFetch';
+import InProgress from '../components/InProgress';
 
 if (!localStorage.getItem('inProgressRecipes')) {
-  localStorage.setItem('inProgressRecipes', { cocktails: {}, meals: {} });
+  localStorage.setItem('inProgressRecipes', JSON.stringify({ cocktails: {}, meals: {} }));
 }
 
 function RecipeInProgress({ match, history }) {
@@ -27,44 +28,9 @@ function RecipeInProgress({ match, history }) {
     setingRecipe();
   }, [match, history]);
 
-  console.log(recipe);
-
-  const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
-    .filter((e) => recipe[e] !== '' && recipe[e] !== null);
-  console.log(ingredientKeys);
-
-  const kindOf = () => {
-    if (history.location.pathname.includes('bebidas')) return 'Drink';
-    if (history.location.pathname.includes('comidas')) return 'Meal';
-  };
-
-  const kind = kindOf();
-
   return (
     <div>
-      <img
-        data-testid="recipe-photo"
-        alt={ `${kind}` }
-        src={ recipe[`str${kind}Thumb`] }
-      />
-      <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
-      <button type="button" data-testid="share-btn">Share</button>
-      <button type="button" data-testid="favorite-btn">Favoritar</button>
-      <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
-      { ingredientKeys.map((k, index) => (
-        <div key={ k }>
-          <label
-            data-testid={ `${index}-ingredient-step` }
-            htmlFor={ index }
-          >
-            <input type="checkbox" name="ingredients" id={ index } />
-            { `${recipe[k]} ${recipe[`strMeasure${index + 1}`]}` }
-          </label>
-          <br />
-        </div>
-      ))}
-      <p data-testid="instructions">{ recipe.strInstructions }</p>
-      <button type="button" data-testid="finish-recipe-btn">Finalizar</button>
+      <InProgress recipe={ recipe } history={ history } id={ match.params.id } />
     </div>
   );
 }
