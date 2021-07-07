@@ -48,12 +48,17 @@ function RecipeInProgress({ match, history }) {
       <button type="button" data-testid="favorite-btn">Favoritar</button>
       <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
       { ingredientKeys.map((k, index) => (
-        <p
-          data-testid={ `${index}-ingredient-step` }
-          key={ k }
-        >
-          { `${recipe[k]} ${recipe[`strMeasure${index + 1}`]}` }
-        </p>))}
+        <div key={ k }>
+          <label
+            data-testid={ `${index}-ingredient-step` }
+            htmlFor={ index }
+          >
+            <input type="checkbox" name="ingredients" id={ index } />
+            { `${recipe[k]} ${recipe[`strMeasure${index + 1}`]}` }
+          </label>
+          <br />
+        </div>
+      ))}
       <p data-testid="instructions">{ recipe.strInstructions }</p>
       <button type="button" data-testid="finish-recipe-btn">Finalizar</button>
     </div>
