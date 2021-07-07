@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import shareIcon from '../images/shareIcon.svg';
+import whiteHeart from '../images/whiteHeartIcon.svg';
 
 const kindOf = (history) => {
   if (history.location.pathname.includes('bebidas')) return 'Drink';
@@ -58,8 +60,18 @@ function InProgress({ recipe, history, id }) {
         src={ recipe[`str${kind}Thumb`] }
       />
       <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
-      <button type="button" data-testid="share-btn">Share</button>
-      <button type="button" data-testid="favorite-btn">Favoritar</button>
+      <button type="button" data-testid="share-btn">
+        <img
+          src={ shareIcon }
+          alt="share icon"
+        />
+      </button>
+      <button type="button" data-testid="favorite-btn">
+        <img
+          src={ whiteHeart }
+          alt="fav icon"
+        />
+      </button>
       <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
       { ingredientKeys.map((k, index) => (
         <div key={ k }>
