@@ -14,6 +14,7 @@ function Provider({ children }) {
   const [userPage, setUserPage] = useState('');
   const [noResultsFound, setNoResultsFound] = useState(false);
   const [shouldRedirect, setShouldRedirect] = useState(true);
+  const [recipe, setRecipe] = useState('');
 
   useEffect(() => {
     const getMeals = async () => {
@@ -58,7 +59,9 @@ function Provider({ children }) {
           noResultsFound,
           setNoResultsFound,
           shouldRedirect,
-          setShouldRedirect }
+          setShouldRedirect,
+          recipe,
+          setRecipe }
       }
     >
       { children }
