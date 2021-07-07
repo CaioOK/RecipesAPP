@@ -67,7 +67,7 @@ function RecipeDetails({ match }) {
               {ingredientsAndMeasures.length ? ingredientsAndMeasures[0]
                 .map((ingredient, i) => (
                   <li
-                    key={ ingredient }
+                    key={ `${ingredient}${i}` }
                     data-testid={ `${i}-ingredient-name-and-measure` }
                   >
                     { `${ingredient[`strIngredient${i + 1}`]} - ${// strIngredients and strMeasure starts in strIngredients1 and strMeasure1.
