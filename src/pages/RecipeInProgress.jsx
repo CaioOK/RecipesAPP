@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import fetchMeals from '../services/fetchMeals';
 
+if (!localStorage.getItem('inProgressRecipes')) {
+  localStorage.setItem('inProgressRecipes', { cocktails: {}, meals: {} });
+}
+
 function RecipeInProgress({ match, history }) {
   const [recipe, setRecipe] = useState({});
 
