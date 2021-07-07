@@ -64,7 +64,7 @@ function Provider({ children }) {
 
   useEffect(() => {
     const getRandomDrink = async () => {
-      const randomDrinksResponse = await fetchMeals(initialRandomDrinksUrl);
+      const randomDrinksResponse = await genericFetch(initialRandomDrinksUrl);
       if (!randomDrinksResponse.drinks) {
         setNoResultsFound(true);
         return;
@@ -79,7 +79,7 @@ function Provider({ children }) {
 
   useEffect(() => {
     const getRandomMeal = async () => {
-      const randomMealsResponse = await fetchMeals(initialRandomMealsUrl);
+      const randomMealsResponse = await genericFetch(initialRandomMealsUrl);
       if (!randomMealsResponse.drinks) {
         setNoResultsFound(true);
         return;
@@ -95,7 +95,7 @@ function Provider({ children }) {
   useEffect(() => {
     const getMealsIngredient = async () => {
       const quantity = 12;
-      const mealsIngResp = await fetchMeals(initialMealsIngredientUrl);
+      const mealsIngResp = await genericFetch(initialMealsIngredientUrl);
       if (!mealsIngResp.meals) {
         setNoResultsFound(true);
         return;
@@ -109,7 +109,7 @@ function Provider({ children }) {
   useEffect(() => {
     const getDrinksIngredient = async () => {
       const quantity = 12;
-      const drinksIngResp = await fetchMeals(iniDrinksIngredientUrl);
+      const drinksIngResp = await genericFetch(iniDrinksIngredientUrl);
       if (!drinksIngResp.drinks) {
         setNoResultsFound(true);
         return;
@@ -125,7 +125,7 @@ function Provider({ children }) {
       const all = {
         strArea: 'All',
       };
-      const mealsOriginResp = await fetchMeals(initialMealsOriginUrl);
+      const mealsOriginResp = await genericFetch(initialMealsOriginUrl);
       if (!mealsOriginResp.meals) {
         setNoResultsFound(true);
         return;

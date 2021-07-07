@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeart from '../images/whiteHeartIcon.svg';
+import blackHeart from '../images/blackHeartIcon.svg';
+
+if (!localStorage.getItem('favoriteRecipes')) {
+  localStorage.setItem('favoriteRecipes', JSON.stringify([]));
+}
 
 const kindOf = (history) => {
   if (history.location.pathname.includes('bebidas')) return 'Drink';
@@ -27,6 +32,8 @@ function InProgress({ recipe, history, id }) {
   const checkedArr = setCheckArr(id, objectKey);
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
+
+  const [heart, setHeart] = useState(false);
 
   function handleChange(event) {
     const isChecked = event.target.checked;
@@ -58,6 +65,7 @@ function InProgress({ recipe, history, id }) {
         data-testid="recipe-photo"
         alt={ `${kind}` }
         src={ recipe[`str${kind}Thumb`] }
+        className="sectionImg"
       />
       <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
       <button type="button" data-testid="share-btn">
@@ -66,9 +74,13 @@ function InProgress({ recipe, history, id }) {
           alt="share icon"
         />
       </button>
-      <button type="button" data-testid="favorite-btn">
+      <button
+        type="button"
+        onClick={ () => setHeart(!heart) }
+        data-testid="favorite-btn"
+      >
         <img
-          src={ whiteHeart }
+          src={ heart ? blackHeart : whiteHeart }
           alt="fav icon"
         />
       </button>
