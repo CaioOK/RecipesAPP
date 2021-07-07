@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
+import '../App.css';
 
 function Drinks({ history }) {
   const { drinks, setUserPage, noResultsFound, setNoResultsFound,
