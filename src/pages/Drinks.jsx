@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
+import '../App.css';
 
 function Drinks({ history }) {
   const { drinks, setUserPage, noResultsFound, setNoResultsFound,
@@ -27,18 +28,20 @@ function Drinks({ history }) {
   return (
     <div>
       <Header pageTitle="Bebidas" searchFeat />
-      {
-        (
-          (!drinks.length) ? <h3>Nada encontrado!</h3>
-            : drinks.map(({ strDrinkThumb = '', strDrink = '' }, index) => (
-              <RecipeCard
-                key={ index }
-                imgUrl={ strDrinkThumb }
-                name={ strDrink }
-                index={ index }
-              />))
-        )
-      }
+      <div className="master">
+        {
+          (
+            (!drinks.length) ? <h3>Nada encontrado!</h3>
+              : drinks.map(({ strDrinkThumb = '', strDrink = '' }, index) => (
+                <RecipeCard
+                  key={ index }
+                  imgUrl={ strDrinkThumb }
+                  name={ strDrink }
+                  index={ index }
+                />))
+          )
+        }
+      </div>
       <Footer />
     </div>
   );

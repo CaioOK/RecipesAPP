@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../contexts/MyContext';
+import '../App.css';
 
 function SearchBar() {
   const [radioType, setRadioType] = useState('');
@@ -57,7 +58,7 @@ function SearchBar() {
   };
 
   return (
-    <form>
+    <form className="search">
       <input
         data-testid="search-input"
         id="search-input"
