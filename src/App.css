@@ -67,12 +67,120 @@
   }
 }
 
-footer {
+.footer {
+  align-items: center;
+  background-color: pink;
   bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 3.5rem;
+  justify-content: space-evenly;
   position: fixed;
+  width: 100%;
 }
 
-img {
-  height: 5rem;
-  margin: 1rem 1.2rem;
+.footerIcon {
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  width: 3rem;
+}
+
+/* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
+.login {
+  left: 20%;
+  position: absolute;
+  top: 50%;
+  width: 200px;
+}
+
+.input {
+  background-color: pink;
+  border: 0;
+  border-bottom: 1px solid black;
+  border-radius: 10px;
+  box-shadow: none;
+  color: black;
+  height: 50px;
+  width: 100%;
+}
+
+.label {
+  border: 2px solid pink;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  background-color: pink;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 3.5rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.headerTitle {
+  display: flex;
+  font-size: 2rem;
+  height: 50%;
+  margin-left: 1.5rem;
+}
+
+.headerIcon {
+  height: 2rem;
+  margin-left: 1.5rem;
+}
+
+.headerButton {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.section {
+  border-radius: 5px;
+  border-top: 3px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  margin: 0.5rem;
+  max-width: 200px;
+  text-align: center;
+}
+
+.sectionImg {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.sectionText {
+  display: flex;
+  font-size: 1rem;
+  height: 50%;
+  margin-left: 1.5rem;
+  margin-top: 10%;
+}
+
+.master {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 360px;
+}
+
+.search {
+  align-items: center;
+  background-color: pink;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: inline;
+  position: absolute;
+  text-align: center;
+  top: 55px;
+  width: 360px;
 }

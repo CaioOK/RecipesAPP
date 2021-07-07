@@ -48,21 +48,23 @@ function Drinks({ history }) {
     <div>
       <Header pageTitle="Bebidas" searchFeat />
       <CategoryBar categories={ categories } recipeType="drinks" />
-      {
-        (
-          (!drinks.length) ? <h3>Carregando...</h3>
-            : drinks.map((drink, index) => (
-              <Link key={ index } to={ `/bebidas/${drink.idDrink}` }>
-                <RecipeCard
-                  drink={ drink }
-                  imgUrl={ drink.strDrinkThumb }
-                  name={ drink.strDrink }
-                  index={ index }
-                />
-              </Link>
-            ))
-        )
-      }
+      <div className="master">
+        {
+          (
+            (!drinks.length) ? <h3>Carregando...</h3>
+              : drinks.map((drink, index) => (
+                <Link key={ index } to={ `/bebidas/${drink.idDrink}` }>
+                  <RecipeCard
+                    drink={ drink }
+                    imgUrl={ drink.strDrinkThumb }
+                    name={ drink.strDrink }
+                    index={ index }
+                  />
+                </Link>
+              ))
+          )
+        }
+      </div>
       <Footer />
     </div>
   );

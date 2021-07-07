@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
+import '../App.css';
 
 function Header({ pageTitle, searchFeat }) {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -13,7 +14,7 @@ function Header({ pageTitle, searchFeat }) {
   }
 
   const createSearchIcon = () => (
-    <button type="button" onClick={ handleClick }>
+    <button className="headerButton" type="button" onClick={ handleClick }>
       <img
         data-testid="search-top-btn"
         src={ searchIcon }
@@ -23,17 +24,19 @@ function Header({ pageTitle, searchFeat }) {
   );
 
   return (
-    <div>
-      <h1 data-testid="page-title">{ pageTitle }</h1>
-      <Link
-        to="/perfil"
-      >
-        <img
-          data-testid="profile-top-btn"
-          src={ profileIcon }
-          alt="profile icon"
-        />
-      </Link>
+    <header className="header">
+      <div className="headerIcon">
+        <Link
+          to="/perfil"
+        >
+          <img
+            data-testid="profile-top-btn"
+            src={ profileIcon }
+            alt="profile icon"
+          />
+        </Link>
+      </div>
+      <h1 className="headerTitle" data-testid="page-title">{ pageTitle }</h1>
       {
         searchFeat
           ? createSearchIcon()
@@ -44,7 +47,7 @@ function Header({ pageTitle, searchFeat }) {
           ? <SearchBar />
           : <div />
       }
-    </div>
+    </header>
   );
 }
 

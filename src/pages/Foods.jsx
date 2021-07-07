@@ -7,6 +7,7 @@ import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
+import '../App.css';
 
 function Foods({ history }) {
   const { meals, setUserPage, noResultsFound, setNoResultsFound, shouldRedirect,
@@ -46,21 +47,23 @@ function Foods({ history }) {
     <div>
       <Header pageTitle="Comidas" searchFeat />
       <CategoryBar categories={ categories } recipeType="meals" />
-      {
-        (
-          (!meals.length) ? <h3>Carregando...</h3>
-            : meals.map((meal, index) => (
-              <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
-                <RecipeCard
-                  meal={ meal }
-                  imgUrl={ meal.strMealThumb }
-                  name={ meal.strMeal }
-                  index={ index }
-                />
-              </Link>
-            ))
-        )
-      }
+      <div className="master">
+        {
+          (
+            (!meals.length) ? <h3>Carregando...</h3>
+              : meals.map((meal, index) => (
+                <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
+                  <RecipeCard
+                    meal={ meal }
+                    imgUrl={ meal.strMealThumb }
+                    name={ meal.strMeal }
+                    index={ index }
+                  />
+                </Link>
+              ))
+          )
+        }
+      </div>
       <Footer />
     </div>
   );
