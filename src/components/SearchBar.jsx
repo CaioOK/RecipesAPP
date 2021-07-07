@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../contexts/MyContext';
+import '../App.css';
 
 function SearchBar() {
   const [radioType, setRadioType] = useState('');
   const [searchValue, setSearchValue] = useState('');
-  const { setMealsUrl, setDrinksUrl, userPage } = useContext(MyContext);
+  const { setMealsUrl, setDrinksUrl, userPage, setShouldRedirect,
+  } = useContext(MyContext);
   const { alert } = window;
 
   const handleFoodsApiRequest = (type, value) => {
+    setShouldRedirect(true);
+
     switch (type) {
     case 'ingredient':
       setMealsUrl(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${value}`);
@@ -28,6 +32,8 @@ function SearchBar() {
   };
 
   const handleDrinkssApiRequest = (type, value) => {
+    setShouldRedirect(true);
+
     switch (type) {
     case 'ingredient':
       setDrinksUrl(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${value}`);
@@ -57,7 +63,7 @@ function SearchBar() {
   };
 
   return (
-    <form>
+    <form className="search">
       <input
         data-testid="search-input"
         id="search-input"

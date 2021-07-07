@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../App.css';
 
 function RecipeCard({ imgUrl, name, index }) {
   return (
-    <section data-testid={ `${index}-recipe-card` }>
+    <section className="section" data-testid={ `${index}-recipe-card` }>
       <img
+        className="sectionImg"
         src={ imgUrl }
         alt={ name }
         data-testid={ `${index}-card-img` }
-        style={ { width: '150px', height: '160px' } }
       />
-      <p data-testid={ `${index}-card-name` }>{name}</p>
+      <p className="sectionText" data-testid={ `${index}-card-name` }>{name}</p>
     </section>
   );
 }
