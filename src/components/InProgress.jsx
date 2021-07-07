@@ -11,25 +11,18 @@ const objectKind = (history) => {
   if (history.location.pathname.includes('comidas')) return 'meals';
 };
 
-const setCheckArr = (id, history) => {
+const setCheckArr = (id, objkey) => {
   const inProg = JSON.parse(localStorage.getItem('inProgressRecipes'));
-  if (inProg.meals[id]) return (inProg.meals[id]);
-  if (inProg.cocktails[id]) return (inProg.cocktails[id]);
-  if (history.location.pathname.includes('comidas')) {
-    const myStorage = { ...inProg, meals: { ...inProg.meals, [id]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(myStorage));
-  }
-  if (history.location.pathname.includes('bebidas')) {
-    const myStorage = { ...inProg, cocktails: { ...inProg.cocktails, [id]: [] } };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(myStorage));
-  }
+  if (inProg[objkey][id]) return (inProg[objkey][id]);
+  const myStorage = { ...inProg, [objkey]: { ...inProg[objkey], [id]: [] } };
+  localStorage.setItem('inProgressRecipes', JSON.stringify(myStorage));
   return [''];
 };
 
 function InProgress({ recipe, history, id }) {
   const kind = kindOf(history);
   const objectKey = objectKind(history);
-  const checkedArr = setCheckArr(id, history);
+  const checkedArr = setCheckArr(id, objectKey);
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
 
