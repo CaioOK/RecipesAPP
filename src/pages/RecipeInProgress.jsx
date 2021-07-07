@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import fetchMeals from '../services/fetchMeals';
+import genericFetch from '../services/genericFetch';
 import InProgress from '../components/InProgress';
 
 if (!localStorage.getItem('inProgressRecipes')) {
@@ -21,7 +21,7 @@ function RecipeInProgress({ match, history }) {
         }
       };
       const myUrl = url();
-      const myRecipe = await fetchMeals(myUrl);
+      const myRecipe = await genericFetch(myUrl);
       if (history.location.pathname.includes('bebidas')) setRecipe(myRecipe.drinks[0]);
       if (history.location.pathname.includes('comidas')) setRecipe(myRecipe.meals[0]);
     };
