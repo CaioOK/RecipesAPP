@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import MyContext from './MyContext';
 import genericFetch from '../services/genericFetch';
 
+if (!JSON.parse(localStorage.getItem('doneRecipes'))) {
+  localStorage.setItem('doneRecipes', JSON.stringify([]));
+}
+
 function Provider({ children }) {
   const initialMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const initialDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
