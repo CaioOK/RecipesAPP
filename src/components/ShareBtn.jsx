@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 
-function ShareBtn({ id, kind, testId = 'share-btn' }) {
+function ShareBtn({ id, kind, testId }) {
   const [copied, setCopied] = useState(false);
   const kindOf = kind === 'Meal' ? 'comidas' : 'bebidas';
 
@@ -45,7 +45,11 @@ function ShareBtn({ id, kind, testId = 'share-btn' }) {
 ShareBtn.propTypes = {
   id: PropTypes.string.isRequired,
   kind: PropTypes.string.isRequired,
-  testId: PropTypes.string.isRequired,
+  testId: PropTypes.string,
+};
+
+ShareBtn.defaultProps = {
+  testId: 'share-btn',
 };
 
 export default ShareBtn;
