@@ -54,20 +54,6 @@ function InProgress({ recipe, history, id }) {
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
 
-  useEffect(() => {
-    function checkFinnishBtn() {
-      const ingrArr = Array.prototype.slice
-        .call(document.querySelectorAll('[name=ingredients]'));
-      console.log(ingrArr);
-      if (ingrArr.every((e) => e.checked === true)) {
-        setFinnishBtn(false);
-      } else {
-        setFinnishBtn(true);
-      }
-    }
-    checkFinnishBtn();
-  });
-
   function finnishRecipe() {
     const ingrArr = Array.prototype.slice
       .call(document.querySelectorAll('[name=ingredients]'));
@@ -77,6 +63,10 @@ function InProgress({ recipe, history, id }) {
       setFinnishBtn(true);
     }
   }
+
+  useEffect(() => {
+    finnishRecipe();
+  });
 
   function handleChange(event) {
     const myParams = {
