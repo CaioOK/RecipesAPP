@@ -78,6 +78,10 @@ function InProgress({ recipe, history, id }) {
     finnishRecipe();
   }
 
+  function handleClick() {
+    history.push('/receitas-feitas');
+  }
+
   return (
     <div>
       <img
@@ -112,6 +116,7 @@ function InProgress({ recipe, history, id }) {
       <button
         disabled={ finnishBtn }
         type="button"
+        onClick={ handleClick }
         data-testid="finish-recipe-btn"
       >
         Finalizar
