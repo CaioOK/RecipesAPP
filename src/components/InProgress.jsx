@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import FavouriteBtn from './FavouriteBtn';
 import ShareBtn from './ShareBtn';
@@ -47,11 +47,36 @@ const setCheckArr = (id, objkey) => {
 };
 
 function InProgress({ recipe, history, id }) {
+  const [finnishBtn, setFinnishBtn] = useState(true);
   const kind = kindOf(history);
   const objectKey = objectKind(history);
   const checkedArr = setCheckArr(id, objectKey);
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
+
+  useEffect(() => {
+    function checkFinnishBtn() {
+      const ingrArr = Array.prototype.slice
+        .call(document.querySelectorAll('[name=ingredients]'));
+      console.log(ingrArr);
+      if (ingrArr.every((e) => e.checked === true)) {
+        setFinnishBtn(false);
+      } else {
+        setFinnishBtn(true);
+      }
+    }
+    checkFinnishBtn();
+  });
+
+  function finnishRecipe() {
+    const ingrArr = Array.prototype.slice
+      .call(document.querySelectorAll('[name=ingredients]'));
+    if (ingrArr.every((e) => e.checked === true)) {
+      setFinnishBtn(false);
+    } else {
+      setFinnishBtn(true);
+    }
+  }
 
   function handleChange(event) {
     const myParams = {
@@ -60,6 +85,7 @@ function InProgress({ recipe, history, id }) {
     };
     const myLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
     isItChecked(myLocalStorage, objectKey, id, myParams);
+    finnishRecipe();
   }
 
   return (
@@ -93,7 +119,13 @@ function InProgress({ recipe, history, id }) {
         </div>
       ))}
       <p data-testid="instructions">{ recipe.strInstructions }</p>
-      <button type="button" data-testid="finish-recipe-btn">Finalizar</button>
+      <button
+        disabled={ finnishBtn }
+        type="button"
+        data-testid="finish-recipe-btn"
+      >
+        Finalizar
+      </button>
     </div>
   );
 }
