@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 
-function ShareBtn({ id, kind }) {
+function ShareBtn({ id, kind, testId = 'share-btn' }) {
   const [copied, setCopied] = useState(false);
   const kindOf = kind === 'Meal' ? 'comidas' : 'bebidas';
 
@@ -25,7 +25,8 @@ function ShareBtn({ id, kind }) {
       <button
         type="button"
         onClick={ handleClick }
-        data-testid="share-btn"
+        data-testid={ testId }
+        src="src/images/shareIcon.svg"
       >
         <img
           src={ shareIcon }
@@ -44,6 +45,7 @@ function ShareBtn({ id, kind }) {
 ShareBtn.propTypes = {
   id: PropTypes.string.isRequired,
   kind: PropTypes.string.isRequired,
+  testId: PropTypes.string.isRequired,
 };
 
 export default ShareBtn;
