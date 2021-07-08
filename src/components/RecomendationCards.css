@@ -1,0 +1,20 @@
+.scroll {
+  margin: 4px, 4px;
+  padding: 4px;
+  background-color: #cbcbcb;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.inScreen {
+  width: 51%;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+/* source : https://www.geeksforgeeks.org/make-a-div-horizontally-scrollable-using-css/ */

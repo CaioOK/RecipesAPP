@@ -15,6 +15,7 @@ function RecipeDetails({ match }) {
   const [foodOrDrink, setFoodDrink] = useState('loadin...');
   const [category, setCategory] = useState('loadin...');
   const [url, setUrl] = useState('https://www.youtube.com/embed/IEDEtZ4UVtI');
+  const [recomendationCardsData, setRecomendationCardsData] = useState('');
   useEffect(() => {
     console.log(match, !!recipe);
     if (recipe) {
@@ -27,15 +28,22 @@ function RecipeDetails({ match }) {
     }
     const fetchOfRecipe = async () => {
       let keyURL;
+      const quantity = 6;
       if (match.path.includes('bebidas')) {
         keyURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
+        const data = await genericFetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+        const sixCards = data.meals.slice(0, quantity);
         const { drinks } = await genericFetch(keyURL);
         setAlcoholic(drinks[0].strAlcoholic);
         setRecipe(drinks[0]);
+        setRecomendationCardsData(sixCards);
       } else {
         keyURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
+        const data = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+        const sixCards = data.drinks.slice(0, quantity);
         const { meals } = await genericFetch(keyURL);
         setRecipe(meals[0]);
+        setRecomendationCardsData(sixCards);
       }
     };
     fetchOfRecipe();
@@ -86,8 +94,13 @@ function RecipeDetails({ match }) {
               src={ url }
             />
             <h2>Recommended</h2>
-            <RecomendationCards />
+            <RecomendationCards
+              dataForCards={ recomendationCardsData }
+            />
             <button
+              style={ { position: 'fixed',
+                bottom: '0',
+                right: '0' } }
               data-testid="start-recipe-btn"
               type="button"
             >
