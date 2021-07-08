@@ -1,5 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import FavouriteBtn from './FavouriteBtn';
+import ShareBtn from './ShareBtn';
+
+if (!localStorage.getItem('favoriteRecipes')) {
+  localStorage.setItem('favoriteRecipes', JSON.stringify([]));
+}
+
+const isItChecked = (myLocalStorage, objectKey, id, myParams) => {
+  if (myParams.isChecked) {
+    const newLocalStorage = {
+      ...myLocalStorage,
+      [objectKey]: {
+        ...myLocalStorage[objectKey],
+        [id]: myLocalStorage[objectKey][id].concat(myParams.myId),
+      } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+  } else {
+    const newLocalStorage = {
+      ...myLocalStorage,
+      [objectKey]: {
+        ...myLocalStorage[objectKey],
+        [id]: myLocalStorage[objectKey][id].filter((e) => e !== myParams.myId),
+      },
+    };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+  }
+};
 
 const kindOf = (history) => {
   if (history.location.pathname.includes('bebidas')) return 'Drink';
@@ -20,34 +47,39 @@ const setCheckArr = (id, objkey) => {
 };
 
 function InProgress({ recipe, history, id }) {
+  const [finnishBtn, setFinnishBtn] = useState(true);
   const kind = kindOf(history);
   const objectKey = objectKind(history);
   const checkedArr = setCheckArr(id, objectKey);
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
 
-  function handleChange(event) {
-    const isChecked = event.target.checked;
-    const myId = event.target.id;
-    const myLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    if (isChecked) {
-      const newLocalStorage = {
-        ...myLocalStorage,
-        [objectKey]: {
-          ...myLocalStorage[objectKey],
-          [id]: myLocalStorage[objectKey][id].concat(myId),
-        } };
-      localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+  function finnishRecipe() {
+    const ingrArr = Array.prototype.slice
+      .call(document.querySelectorAll('[name=ingredients]'));
+    if (ingrArr.every((e) => e.checked === true)) {
+      setFinnishBtn(false);
     } else {
-      const newLocalStorage = {
-        ...myLocalStorage,
-        [objectKey]: {
-          ...myLocalStorage[objectKey],
-          [id]: myLocalStorage[objectKey][id].filter((e) => e !== myId),
-        },
-      };
-      localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+      setFinnishBtn(true);
     }
+  }
+
+  useEffect(() => {
+    finnishRecipe();
+  });
+
+  function handleChange(event) {
+    const myParams = {
+      isChecked: event.target.checked,
+      myId: event.target.id,
+    };
+    const myLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    isItChecked(myLocalStorage, objectKey, id, myParams);
+    finnishRecipe();
+  }
+
+  function handleClick() {
+    history.push('/receitas-feitas');
   }
 
   return (
@@ -56,10 +88,11 @@ function InProgress({ recipe, history, id }) {
         data-testid="recipe-photo"
         alt={ `${kind}` }
         src={ recipe[`str${kind}Thumb`] }
+        className="sectionImg"
       />
       <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
-      <button type="button" data-testid="share-btn">Share</button>
-      <button type="button" data-testid="favorite-btn">Favoritar</button>
+      <FavouriteBtn recipe={ recipe } kind={ kind } id={ id } />
+      <ShareBtn id={ id } kind={ kind } />
       <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
       { ingredientKeys.map((k, index) => (
         <div key={ k }>
@@ -80,7 +113,14 @@ function InProgress({ recipe, history, id }) {
         </div>
       ))}
       <p data-testid="instructions">{ recipe.strInstructions }</p>
-      <button type="button" data-testid="finish-recipe-btn">Finalizar</button>
+      <button
+        disabled={ finnishBtn }
+        type="button"
+        onClick={ handleClick }
+        data-testid="finish-recipe-btn"
+      >
+        Finalizar
+      </button>
     </div>
   );
 }
