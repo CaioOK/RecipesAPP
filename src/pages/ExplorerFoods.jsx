@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MyContext from '../contexts/MyContext';
 
 function ExplorerFoods() {
+  const { randomMeals } = useContext(MyContext);
+
+  if (randomMeals.length) {
+    return (<h3>Carregando...</h3>);
+  }
   return (
     <div>
       <Header pageTitle="Explorar Comidas" searchFeat={ false } />
@@ -23,19 +29,18 @@ function ExplorerFoods() {
           Por Local de Origem
         </button>
       </Link>
-      <Link to="/explorar/comidas">
+      <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
         <button
           data-testid="explore-surprise"
           type="button"
         >
-          {/* Requisito 74, preciso da tela de Detalhes,
-           já estou gerando o Random no Context */}
           Me Surpreenda!
         </button>
       </Link>
       <Footer />
     </div>
-  );
+
+    );
 }
 
 export default ExplorerFoods;

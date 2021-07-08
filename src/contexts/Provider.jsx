@@ -19,7 +19,7 @@ function Provider({ children }) {
   const initialRandomDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   const [randomDrinks, setRandomDrinks] = useState(['']);
   const [randomDrinksUrl, setRandomDrinksUrl] = useState(initialRandomDrinksUrl);
-  const initialRandomMealsUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const initialRandomMealsUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
   const [randomMeals, setRandomMeals] = useState(['']);
   const [randomMealsUrl, setRandomMealsUrl] = useState(initialRandomMealsUrl);
   const initialMealsIngredientUrl = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
@@ -64,7 +64,7 @@ function Provider({ children }) {
 
   useEffect(() => {
     const getRandomDrink = async () => {
-      const randomDrinksResponse = await fetchMeals(initialRandomDrinksUrl);
+      const randomDrinksResponse = await genericFetch(initialRandomDrinksUrl);
       if (!randomDrinksResponse.drinks) {
         setNoResultsFound(true);
         return;
@@ -79,8 +79,8 @@ function Provider({ children }) {
 
   useEffect(() => {
     const getRandomMeal = async () => {
-      const randomMealsResponse = await fetchMeals(initialRandomMealsUrl);
-      if (!randomMealsResponse.drinks) {
+      const randomMealsResponse = await genericFetch(initialRandomMealsUrl);
+      if (!randomMealsResponse.meals) {
         setNoResultsFound(true);
         return;
       }
@@ -95,7 +95,7 @@ function Provider({ children }) {
   useEffect(() => {
     const getMealsIngredient = async () => {
       const quantity = 12;
-      const mealsIngResp = await fetchMeals(initialMealsIngredientUrl);
+      const mealsIngResp = await genericFetch(initialMealsIngredientUrl);
       if (!mealsIngResp.meals) {
         setNoResultsFound(true);
         return;
@@ -109,7 +109,7 @@ function Provider({ children }) {
   useEffect(() => {
     const getDrinksIngredient = async () => {
       const quantity = 12;
-      const drinksIngResp = await fetchMeals(iniDrinksIngredientUrl);
+      const drinksIngResp = await genericFetch(iniDrinksIngredientUrl);
       if (!drinksIngResp.drinks) {
         setNoResultsFound(true);
         return;
@@ -125,7 +125,7 @@ function Provider({ children }) {
       const all = {
         strArea: 'All',
       };
-      const mealsOriginResp = await fetchMeals(initialMealsOriginUrl);
+      const mealsOriginResp = await genericFetch(initialMealsOriginUrl);
       if (!mealsOriginResp.meals) {
         setNoResultsFound(true);
         return;
