@@ -40,7 +40,7 @@ function ExplorerFoods() {
       <Footer />
     </div>
 
-    );
+  );
 }
 
 export default ExplorerFoods;
