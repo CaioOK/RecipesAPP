@@ -54,8 +54,13 @@ function RecipeDetails({ match }) {
       {/* {console.log(match, !!recipe)} */}
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
-          <section>
-            <img src={ thumb } alt="some food" data-testid="recipe-photo" />
+          <section style={ { overflowX: 'hidden' } }>
+            <img
+              style={ { width: '100vh' } }
+              src={ thumb }
+              alt="some food"
+              data-testid="recipe-photo"
+            />
             <h1 data-testid="recipe-title">
               { foodOrDrink }
             </h1>
