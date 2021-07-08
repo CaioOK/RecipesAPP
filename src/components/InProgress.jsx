@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import shareIcon from '../images/shareIcon.svg';
-import whiteHeart from '../images/whiteHeartIcon.svg';
-import blackHeart from '../images/blackHeartIcon.svg';
+import FavouriteBtn from './FavouriteBtn';
+import ShareBtn from './ShareBtn';
 
 if (!localStorage.getItem('favoriteRecipes')) {
   localStorage.setItem('favoriteRecipes', JSON.stringify([]));
 }
+
+const isItChecked = (myLocalStorage, objectKey, id, myParams) => {
+  if (myParams.isChecked) {
+    const newLocalStorage = {
+      ...myLocalStorage,
+      [objectKey]: {
+        ...myLocalStorage[objectKey],
+        [id]: myLocalStorage[objectKey][id].concat(myParams.myId),
+      } };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+  } else {
+    const newLocalStorage = {
+      ...myLocalStorage,
+      [objectKey]: {
+        ...myLocalStorage[objectKey],
+        [id]: myLocalStorage[objectKey][id].filter((e) => e !== myParams.myId),
+      },
+    };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
+  }
+};
 
 const kindOf = (history) => {
   if (history.location.pathname.includes('bebidas')) return 'Drink';
@@ -33,30 +53,13 @@ function InProgress({ recipe, history, id }) {
   const ingredientKeys = Object.keys(recipe).filter((e) => e.includes('strIngredient'))
     .filter((e) => recipe[e] !== '' && recipe[e] !== null);
 
-  const [heart, setHeart] = useState(false);
-
   function handleChange(event) {
-    const isChecked = event.target.checked;
-    const myId = event.target.id;
+    const myParams = {
+      isChecked: event.target.checked,
+      myId: event.target.id,
+    };
     const myLocalStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    if (isChecked) {
-      const newLocalStorage = {
-        ...myLocalStorage,
-        [objectKey]: {
-          ...myLocalStorage[objectKey],
-          [id]: myLocalStorage[objectKey][id].concat(myId),
-        } };
-      localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
-    } else {
-      const newLocalStorage = {
-        ...myLocalStorage,
-        [objectKey]: {
-          ...myLocalStorage[objectKey],
-          [id]: myLocalStorage[objectKey][id].filter((e) => e !== myId),
-        },
-      };
-      localStorage.setItem('inProgressRecipes', JSON.stringify(newLocalStorage));
-    }
+    isItChecked(myLocalStorage, objectKey, id, myParams);
   }
 
   return (
@@ -68,22 +71,8 @@ function InProgress({ recipe, history, id }) {
         className="sectionImg"
       />
       <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
-      <button type="button" data-testid="share-btn">
-        <img
-          src={ shareIcon }
-          alt="share icon"
-        />
-      </button>
-      <button
-        type="button"
-        onClick={ () => setHeart(!heart) }
-        data-testid="favorite-btn"
-      >
-        <img
-          src={ heart ? blackHeart : whiteHeart }
-          alt="fav icon"
-        />
-      </button>
+      <FavouriteBtn recipe={ recipe } kind={ kind } id={ id } />
+      <ShareBtn id={ id } kind={ kind } />
       <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
       { ingredientKeys.map((k, index) => (
         <div key={ k }>
