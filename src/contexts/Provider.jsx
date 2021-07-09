@@ -23,7 +23,7 @@ function Provider({ children }) {
   const initialRandomDrinksUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   const [randomDrinks, setRandomDrinks] = useState(['']);
   const [randomDrinksUrl, setRandomDrinksUrl] = useState(initialRandomDrinksUrl);
-  const initialRandomMealsUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const initialRandomMealsUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
   const [randomMeals, setRandomMeals] = useState(['']);
   const [randomMealsUrl, setRandomMealsUrl] = useState(initialRandomMealsUrl);
   const initialMealsIngredientUrl = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
@@ -84,7 +84,7 @@ function Provider({ children }) {
   useEffect(() => {
     const getRandomMeal = async () => {
       const randomMealsResponse = await genericFetch(initialRandomMealsUrl);
-      if (!randomMealsResponse.drinks) {
+      if (!randomMealsResponse.meals) {
         setNoResultsFound(true);
         return;
       }
