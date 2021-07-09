@@ -4,10 +4,13 @@ import RecomendationCards from '../components/RecomendationCards';
 import organizeIngredientsAndMeasure from '../services/organizeIngredientsAndMeasure';
 import setVideoURL from '../services/setVideoURL';
 import MockRecipeDetails from '../services/MockRecipeDetails';
-// import setRecipes from '../services/setRecipes';
 import genericFetch from '../services/genericFetch';
+import StartRecipeButton from '../components/StartRecipeButton';
+import ShareBtn from '../components/ShareBtn';
+import kindOf from '../services/kindOF';
+import FavouriteBtn from '../components/FavouriteBtn';
 
-function RecipeDetails({ match }) {
+function RecipeDetails({ match, history }) {
   const [recipe, setRecipe] = useState('');
   const [ingredientsAndMeasures, setIngredientsAndMeasures] = useState('');
   const [thumb, setThumb] = useState('loadin...');
@@ -15,6 +18,7 @@ function RecipeDetails({ match }) {
   const [foodOrDrink, setFoodDrink] = useState('loadin...');
   const [category, setCategory] = useState('loadin...');
   const [url, setUrl] = useState('https://www.youtube.com/embed/IEDEtZ4UVtI');
+  const [recomendationCardsData, setRecomendationCardsData] = useState('');
   useEffect(() => {
     console.log(match, !!recipe);
     if (recipe) {
@@ -27,15 +31,22 @@ function RecipeDetails({ match }) {
     }
     const fetchOfRecipe = async () => {
       let keyURL;
+      const quantity = 6;
       if (match.path.includes('bebidas')) {
         keyURL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
+        const data = await genericFetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+        const sixCards = data.meals.slice(0, quantity);
         const { drinks } = await genericFetch(keyURL);
         setAlcoholic(drinks[0].strAlcoholic);
         setRecipe(drinks[0]);
+        setRecomendationCardsData(sixCards);
       } else {
         keyURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
+        const data = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+        const sixCards = data.drinks.slice(0, quantity);
         const { meals } = await genericFetch(keyURL);
         setRecipe(meals[0]);
+        setRecomendationCardsData(sixCards);
       }
     };
     fetchOfRecipe();
@@ -46,8 +57,13 @@ function RecipeDetails({ match }) {
       {/* {console.log(match, !!recipe)} */}
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
-          <section>
-            <img src={ thumb } alt="some food" data-testid="recipe-photo" />
+          <section style={ { overflowX: 'hidden' } }>
+            <img
+              style={ { width: '100vh' } }
+              src={ thumb }
+              alt="some food"
+              data-testid="recipe-photo"
+            />
             <h1 data-testid="recipe-title">
               { foodOrDrink }
             </h1>
@@ -56,12 +72,18 @@ function RecipeDetails({ match }) {
               <br />
               { category }
             </h4>
-            <button type="button" data-testid="share-btn">
+            {/* <button type="button" data-testid="share-btn">
               Share
-            </button>
-            <button type="button" data-testid="favorite-btn">
+            </button> */}
+            <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+            {/* <button type="button" data-testid="favorite-btn">
               Favorite
-            </button>
+            </button> */}
+            <FavouriteBtn
+              recipe={ recipe }
+              id={ match.params.id }
+              kind={ kindOf(history) }
+            />
             <h2>Ingredients</h2>
             <ol>
               {ingredientsAndMeasures.length ? ingredientsAndMeasures[0]
@@ -86,25 +108,24 @@ function RecipeDetails({ match }) {
               src={ url }
             />
             <h2>Recommended</h2>
-            <RecomendationCards />
-            <button
-              data-testid="start-recipe-btn"
-              type="button"
-            >
-              Start Recipe
-            </button>
+            <RecomendationCards
+              dataForCards={ recomendationCardsData }
+            />
+            <StartRecipeButton match={ match } />
           </section>)}
     </section>
   );
 }
 
 RecipeDetails.propTypes = {
+  history: PropTypes.shape({}),
   match: PropTypes.shape(
     { path: PropTypes.string,
+      url: PropTypes.string,
       params: PropTypes.shape({
         id: PropTypes.string,
       }) },
-  ).isRequired,
-};
+  ),
+}.isRequired;
 
 export default RecipeDetails;

@@ -79,6 +79,23 @@ function InProgress({ recipe, history, id }) {
   }
 
   function handleClick() {
+    const storedDoneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    const doneDate = new Intl.DateTimeFormat('pt-BR').format(new Date());
+
+    const currentDoneRecipe = {
+      id,
+      type: kind,
+      area: recipe.strArea || '',
+      category: recipe.strCategory || '',
+      alcoholicOrNot: recipe.strAlcoholic || '',
+      name: recipe.strDrink || recipe.strMeal,
+      image: recipe.strDrinkThumb || recipe.strMealThumb,
+      doneDate,
+      tags: recipe.strTags || '',
+    };
+
+    const addNewDoneRecipe = [...storedDoneRecipes, currentDoneRecipe];
+    localStorage.setItem('doneRecipes', JSON.stringify(addNewDoneRecipe));
     history.push('/receitas-feitas');
   }
 
