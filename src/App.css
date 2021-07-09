@@ -164,7 +164,6 @@ eae2b7
   align-items: center;
   border-bottom: 3px solid #590010;
   border-radius: 5px;
-  /* box-shadow: 0 4px 8px 0 #cf8f38; */
   display: flex;
   flex-flow: row wrap;
   height: 150px;
@@ -175,8 +174,8 @@ eae2b7
 
 .sectionImg {
   display: flex;
-  max-width: 100px;
   max-height: 100px;
+  max-width: 100px;
   object-fit: cover;
 }
 
@@ -186,8 +185,8 @@ eae2b7
   display: flex;
   flex-flow: row wrap;
   font-size: 1rem;
-  max-height: 50px;
   margin: 0;
+  max-height: 50px;
   padding: 0;
   text-decoration: none;
   word-break: break-all;
@@ -209,15 +208,15 @@ eae2b7
   box-shadow: 0 3px 5px 0 #590010;
   color: #590010;
   display: inline;
+  position: absolute;
   text-align: center;
   top: 55px;
-  position: absolute;
   width: 360px;
 }
 
 .search input {
-  border-radius: 10px;
   border: 2px ridge #590010;
+  border-radius: 10px;
   color: #590010;
   margin: 5px;
 }
@@ -234,6 +233,7 @@ eae2b7
 .search label {
   padding: 0 5px;
 }
+
 .category {
   align-content: stretch;
   display: flex row;
@@ -244,15 +244,15 @@ eae2b7
 
 .category input {
   align-self: stretch;
-  display: flex row;
   border: 1px solid #590010;
   border-top: none;
   border-left: none;
+  border-radius: 5px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  border-radius: 5px;
   box-shadow: 0px 1px 1px 0 #590010;
   color: #590010;
+  display: flex row;
   flex-wrap: nowrap;
   padding: 5px;
   margin-left: 3px;
@@ -335,7 +335,6 @@ eae2b7
   padding: 0;
   width: 3rem;
 }
-
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
