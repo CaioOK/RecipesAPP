@@ -9,6 +9,7 @@ import StartRecipeButton from '../components/StartRecipeButton';
 import ShareBtn from '../components/ShareBtn';
 import kindOf from '../services/kindOF';
 import FavouriteBtn from '../components/FavouriteBtn';
+import '../App.css';
 
 function RecipeDetails({ match, history }) {
   const [recipe, setRecipe] = useState('');
@@ -53,13 +54,13 @@ function RecipeDetails({ match, history }) {
   }, [match, recipe]);
 
   return (
-    <section>
+    <section className="detail">
       {/* {console.log(match, !!recipe)} */}
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
           <section style={ { overflowX: 'hidden' } }>
             <img
-              style={ { width: '100vh' } }
+              style={ { width: '100%' } }
               src={ thumb }
               alt="some food"
               data-testid="recipe-photo"
@@ -75,15 +76,17 @@ function RecipeDetails({ match, history }) {
             {/* <button type="button" data-testid="share-btn">
               Share
             </button> */}
-            <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-            {/* <button type="button" data-testid="favorite-btn">
-              Favorite
-            </button> */}
-            <FavouriteBtn
-              recipe={ recipe }
-              id={ match.params.id }
-              kind={ kindOf(history) }
-            />
+            <div className="detailContainer">
+              <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+              {/* <button type="button" data-testid="favorite-btn">
+                Favorite
+              </button> */}
+              <FavouriteBtn
+                recipe={ recipe }
+                id={ match.params.id }
+                kind={ kindOf(history) }
+              />
+            </div>
             <h2>Ingredients</h2>
             <ol>
               {ingredientsAndMeasures.length ? ingredientsAndMeasures[0]

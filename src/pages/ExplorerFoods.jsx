@@ -14,30 +14,35 @@ function ExplorerFoods() {
   return (
     <div>
       <Header pageTitle="Explorar Comidas" searchFeat={ false } />
-      <Link to="/explorar/comidas/ingredientes">
-        <button
-          data-testid="explore-by-ingredient"
-          type="button"
-        >
-          Por Ingredientes
-        </button>
-      </Link>
-      <Link to="/explorar/comidas/area">
-        <button
-          data-testid="explore-by-area"
-          type="button"
-        >
-          Por Local de Origem
-        </button>
-      </Link>
-      <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
-        <button
-          data-testid="explore-surprise"
-          type="button"
-        >
-          Me Surpreenda!
-        </button>
-      </Link>
+      <div className="explorer">
+        <Link to="/explorar/comidas/ingredientes">
+          <button
+            className="explorerBtn"
+            data-testid="explore-by-ingredient"
+            type="button"
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <Link to="/explorar/comidas/area">
+          <button
+            className="explorerBtn"
+            data-testid="explore-by-area"
+            type="button"
+          >
+            Por Local de Origem
+          </button>
+        </Link>
+        <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
+          <button
+            className="explorerBtn"
+            data-testid="explore-surprise"
+            type="button"
+          >
+            Me Surpreenda!
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

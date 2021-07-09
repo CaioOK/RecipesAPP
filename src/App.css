@@ -194,6 +194,7 @@ eae2b7
 }
 
 .master {
+  margin-left: 20px;
   display: flex;
   flex-flow: row wrap;
   height: 500px;
@@ -287,6 +288,18 @@ eae2b7
   border-radius: 5px;
 }
 
+.explorerLabel {
+  margin: 5px 20px;
+  padding: 10px;
+  color: #590010;
+  background-color: #eae2b7;
+  flex-flow: row column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  width: 310px;
+}
+
 .loader {
   position: absolute;
   left: 50%;
@@ -301,6 +314,29 @@ eae2b7
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
+.detail {
+  display: flex;
+  color: #590010;
+}
+
+.detail h1 {
+  border-bottom: 1px solid #cf8f38;
+}
+
+.detailContainer {
+  display: flex;
+}
+
+.detail button {
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  width: 3rem;
+  border: none;
+  background-color: white;
+}
+
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

@@ -23,6 +23,7 @@ function FoodOrigin() {
     <div>
       <Header pageTitle="Explorar Origem" searchFeat />
       <select
+        className="explorerLabel"
         data-testid="explore-by-area-dropdown"
         onChange={ (e) => handleFoodsApiRequest(e.target.value) }
       >
