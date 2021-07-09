@@ -33,6 +33,11 @@ const kindOf = (history) => {
   if (history.location.pathname.includes('comidas')) return 'Meal';
 };
 
+const currentType = (history) => {
+  if (history.location.pathname.includes('bebidas')) return 'bebida';
+  if (history.location.pathname.includes('comidas')) return 'comida';
+};
+
 const objectKind = (history) => {
   if (history.location.pathname.includes('bebidas')) return 'cocktails';
   if (history.location.pathname.includes('comidas')) return 'meals';
@@ -81,10 +86,9 @@ function InProgress({ recipe, history, id }) {
   function handleClick() {
     const storedDoneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     const doneDate = new Intl.DateTimeFormat('pt-BR').format(new Date());
-
     const currentDoneRecipe = {
       id,
-      type: kind,
+      type: currentType(history),
       area: recipe.strArea || '',
       category: recipe.strCategory || '',
       alcoholicOrNot: recipe.strAlcoholic || '',
