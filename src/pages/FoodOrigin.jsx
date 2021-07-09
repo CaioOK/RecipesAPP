@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MyContext from '../contexts/MyContext';
@@ -17,7 +18,7 @@ function FoodOrigin() {
       setMealsUrl(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${value}`);
     }
   };
-  console.log(mealsOrigin);
+  console.log(meals);
   return (
     <div>
       <Header pageTitle="Explorar Origem" searchFeat />
@@ -40,13 +41,16 @@ function FoodOrigin() {
         {
           (
             (!meals.length) ? <Loading />
-              : meals.map(({ strMealThumb = '', strMeal = '' }, index) => (
-                <RecipeCard
-                  key={ index }
-                  imgUrl={ strMealThumb }
-                  name={ strMeal }
-                  index={ index }
-                />))
+              : meals.map((meal, index) => (
+                <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
+                  <RecipeCard
+                    key={ index }
+                    imgUrl={ meal.strMealThumb }
+                    name={ meal.strMeal }
+                    index={ index }
+                  />
+                </Link>
+              ))
           )
         }
       </div>
