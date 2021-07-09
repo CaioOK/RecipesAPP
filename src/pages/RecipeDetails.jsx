@@ -4,10 +4,13 @@ import RecomendationCards from '../components/RecomendationCards';
 import organizeIngredientsAndMeasure from '../services/organizeIngredientsAndMeasure';
 import setVideoURL from '../services/setVideoURL';
 import MockRecipeDetails from '../services/MockRecipeDetails';
-// import setRecipes from '../services/setRecipes';
 import genericFetch from '../services/genericFetch';
+import StartRecipeButton from '../components/StartRecipeButton';
+import ShareBtn from '../components/ShareBtn';
+import kindOf from '../services/kindOF';
+import FavouriteBtn from '../components/FavouriteBtn';
 
-function RecipeDetails({ match }) {
+function RecipeDetails({ match, history }) {
   const [recipe, setRecipe] = useState('');
   const [ingredientsAndMeasures, setIngredientsAndMeasures] = useState('');
   const [thumb, setThumb] = useState('loadin...');
@@ -69,12 +72,18 @@ function RecipeDetails({ match }) {
               <br />
               { category }
             </h4>
-            <button type="button" data-testid="share-btn">
+            {/* <button type="button" data-testid="share-btn">
               Share
-            </button>
-            <button type="button" data-testid="favorite-btn">
+            </button> */}
+            <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+            {/* <button type="button" data-testid="favorite-btn">
               Favorite
-            </button>
+            </button> */}
+            <FavouriteBtn
+              recipe={ recipe }
+              id={ match.params.id }
+              kind={ kindOf(history) }
+            />
             <h2>Ingredients</h2>
             <ol>
               {ingredientsAndMeasures.length ? ingredientsAndMeasures[0]
@@ -102,27 +111,21 @@ function RecipeDetails({ match }) {
             <RecomendationCards
               dataForCards={ recomendationCardsData }
             />
-            <button
-              style={ { position: 'fixed',
-                bottom: '0',
-                right: '0' } }
-              data-testid="start-recipe-btn"
-              type="button"
-            >
-              Start Recipe
-            </button>
+            <StartRecipeButton match={ match } />
           </section>)}
     </section>
   );
 }
 
 RecipeDetails.propTypes = {
+  history: PropTypes.shape({}),
   match: PropTypes.shape(
     { path: PropTypes.string,
+      url: PropTypes.string,
       params: PropTypes.shape({
         id: PropTypes.string,
       }) },
-  ).isRequired,
-};
+  ),
+}.isRequired;
 
 export default RecipeDetails;
