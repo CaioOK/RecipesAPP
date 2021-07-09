@@ -5,7 +5,7 @@ import './RecomendationCards.css';
 function RecomendationCards({ dataForCards }) {
   useEffect(() => {
     console.log(dataForCards);
-  }, []);
+  }, [dataForCards]);
   return (
     <div className="scroll">
       {dataForCards && dataForCards.map((data, i) => (
