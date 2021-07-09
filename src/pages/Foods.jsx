@@ -7,6 +7,7 @@ import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
+import Loading from '../components/Loading';
 import '../App.css';
 
 function Foods({ history }) {
@@ -50,7 +51,7 @@ function Foods({ history }) {
       <div className="master">
         {
           (
-            (!meals.length) ? <h3>Carregando...</h3>
+            (!meals.length) ? <Loading />
               : meals.map((meal, index) => (
                 <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
                   <RecipeCard

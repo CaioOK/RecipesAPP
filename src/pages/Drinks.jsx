@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 import '../App.css';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
@@ -52,7 +53,7 @@ function Drinks({ history }) {
       <div className="master">
         {
           (
-            (!drinks.length) ? <h3>Carregando...</h3>
+            (!drinks.length) ? <Loading />
               : drinks.map((drink, index) => (
                 <Link key={ index } to={ `/bebidas/${drink.idDrink}` }>
                   <RecipeCard

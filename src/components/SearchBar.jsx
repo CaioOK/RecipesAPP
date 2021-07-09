@@ -73,7 +73,6 @@ function SearchBar() {
       />
       <div onChange={ (e) => setRadioType(e.target.value) }>
         <label htmlFor="ingredient-search">
-          Ingrediente
           <input
             type="radio"
             name="search-type"
@@ -81,9 +80,9 @@ function SearchBar() {
             value="ingredient"
             data-testid="ingredient-search-radio"
           />
+          Ingrediente
         </label>
         <label htmlFor="name-search">
-          Nome
           <input
             type="radio"
             name="search-type"
@@ -91,9 +90,9 @@ function SearchBar() {
             value="name"
             data-testid="name-search-radio"
           />
+          Nome
         </label>
         <label htmlFor="first-letter-search">
-          Primeira letra
           <input
             type="radio"
             name="search-type"
@@ -101,6 +100,7 @@ function SearchBar() {
             value="letter"
             data-testid="first-letter-search-radio"
           />
+          Primeira letra
         </label>
       </div>
       <button

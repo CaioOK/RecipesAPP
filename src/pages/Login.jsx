@@ -53,38 +53,40 @@ function Login({ history }) {
   };
 
   return (
-    <form className="login">
-      <label htmlFor="email">
-        Email
-        <input
-          className="label"
-          data-testid="email-input"
-          id="email"
-          type="text"
-          value={ email }
-          onChange={ handleChange }
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          className="label"
-          data-testid="password-input"
-          id="password"
-          type="password"
-          value={ password }
-          onChange={ handleChange }
-        />
-      </label>
-      <button
-        className="input"
-        type="button"
-        data-testid="login-submit-btn"
-        onClick={ handleClick }
-      >
-        Entrar
-      </button>
-    </form>
+    <div className="loginContainer">
+      <form className="login">
+        <label htmlFor="email">
+          Email
+          <input
+            className="label"
+            data-testid="email-input"
+            id="email"
+            type="text"
+            value={ email }
+            onChange={ handleChange }
+          />
+        </label>
+        <label htmlFor="password">
+          Password
+          <input
+            className="label"
+            data-testid="password-input"
+            id="password"
+            type="password"
+            value={ password }
+            onChange={ handleChange }
+          />
+        </label>
+        <button
+          className="input"
+          type="button"
+          data-testid="login-submit-btn"
+          onClick={ handleClick }
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
   );
 }
 

@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
+import Loading from '../components/Loading';
 import '../App.css';
 
 function FoodOrigin() {
@@ -38,7 +39,7 @@ function FoodOrigin() {
       <div className="master">
         {
           (
-            (!meals.length) ? <h3>Carregando...</h3>
+            (!meals.length) ? <Loading />
               : meals.map(({ strMealThumb = '', strMeal = '' }, index) => (
                 <RecipeCard
                   key={ index }

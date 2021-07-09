@@ -1,7 +1,12 @@
+/* Color Gradiente
+cf8f38
+eae2b7
+590010 */
+
 .meals {
   align-items: center;
-  background: #0fa36b;
-  color: #464646;
+  background: #eae2b7;
+  color: #cf8f38;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -31,7 +36,7 @@
 
 .meals > .logo {
   animation: shake 1.5s infinite ease;
-  color: aliceblue;
+  color: #eae2b7;
   font-family: Montserrat , sans-serif;
   font-size: 3em;
   font-weight: 900;
@@ -69,7 +74,7 @@
 
 .footer {
   align-items: center;
-  background-color: pink;
+  background-color: #cf8f38;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -87,33 +92,47 @@
 }
 
 /* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
+.loginContainer {
+	min-height: 100vh;
+  background: linear-gradient(219deg, rgba(207,143,56,1) 0%, rgba(215,166,92,1) 7%, rgba(234,226,183,1) 100%);
+}
+
 .login {
+  color: #590010;
   left: 20%;
   position: absolute;
   top: 50%;
   width: 200px;
 }
 
+.login button {
+  color: #590010;
+
+}
+.login button:hover {
+  transition: all .3s ease;
+  background-color: #eae2b7;
+}
+
 .input {
-  background-color: pink;
+  background-color: #cf8f38;
   border: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #590010;
   border-radius: 10px;
   box-shadow: none;
-  color: black;
   height: 50px;
   width: 100%;
 }
 
 .label {
-  border: 2px solid pink;
+  border: 2px solid #eae2b7;
   border-radius: 10px;
   width: 100%;
 }
 
 .header {
   align-items: center;
-  background-color: pink;
+  background-color: #cf8f38;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -143,29 +162,35 @@
 
 .section {
   border-radius: 5px;
-  border-top: 3px solid black;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid #590010;
+  /* box-shadow: 0 4px 8px 0 #cf8f38; */
   display: flex;
   flex-flow: row wrap;
-  height: 120px;
+  height: 150px;
   margin: 0.2rem;
   max-width: 100px;
   text-align: center;
+  align-items: center;
 }
 
 .sectionImg {
   display: flex;
-  height: 75px;
-  width: 75px;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
 }
 
 .sectionText {
   display: flex;
   flex-flow: row wrap;
   font-size: 1rem;
-  height: 50%;
-  margin-left: 1.5rem;
-  margin-top: 10%;
+  max-height: 50px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #590010;
+  word-break: break-all;
+  align-items: center;
 }
 
 .master {
@@ -173,16 +198,116 @@
   flex-flow: row wrap;
   height: 500px;
   max-width: 360px;
+  align-items: center;
 }
 
 .search {
   align-items: center;
-  background-color: pink;
+  background-color: #eae2b7;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px 0 #590010;
   display: inline;
   position: absolute;
   text-align: center;
   top: 55px;
   width: 360px;
+  color: #590010;
+}
+
+.search input {
+  border-radius: 10px;
+  border: 2px ridge #590010;
+  margin: 5px;
+  color: #590010;
+}
+
+.search button {
+  border-radius: 10px;
+  border-style: solid;
+  color: #590010;
+  margin-bottom: 10px;
+  width: 100px;
+  padding: 5px
+}
+
+.search label {
+  padding: 0 5px;
+}
+.category {
+  display: flex row;
+  width: 100%;
+  justify-content: space-between;
+  align-content: stretch;
+  margin-left: 4px;
+}
+
+.category input {
+  display: flex row;
+  flex-wrap: nowrap;
+  border: 1px solid #590010;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  padding: 5px;
+  margin-left: 3px;
+  color: #590010;
+  align-self: stretch;
+  box-shadow: 0px 1px 1px 0 #590010;
+}
+
+.category input:hover {
+  transition: all .3s ease;
+  background-color: #cf8f38;
+}
+
+.explorer {
+  display: flex;
+  height: 500px;
+  margin: auto;
+  width: 50%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.explorer a {
+  padding-top: 20px
+}
+
+.explorerBtn {
+  margin: 20px;
+  padding: 10px;
+  color: #590010;
+  background-color: #eae2b7;
+  flex-flow: row column;
+  align-items: center;
+  width: 200px;
+  border: 1px solid #590010;
+  border-radius: 5px;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #eae2b7;
+  border-radius: 50%;
+  border-top: 16px solid #cf8f38;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
