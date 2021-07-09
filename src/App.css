@@ -93,8 +93,8 @@ eae2b7
 
 /* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
 .loginContainer {
-	min-height: 100vh;
   background: linear-gradient(219deg, rgba(207,143,56,1) 0%, rgba(215,166,92,1) 7%, rgba(234,226,183,1) 100%);
+	min-height: 100vh;
 }
 
 .login {
@@ -110,8 +110,8 @@ eae2b7
 
 }
 .login button:hover {
-  transition: all .3s ease;
   background-color: #eae2b7;
+  transition: all .3s ease;
 }
 
 .input {
@@ -161,8 +161,9 @@ eae2b7
 }
 
 .section {
-  border-radius: 5px;
+  align-items: center;
   border-bottom: 3px solid #590010;
+  border-radius: 5px;
   /* box-shadow: 0 4px 8px 0 #cf8f38; */
   display: flex;
   flex-flow: row wrap;
@@ -170,7 +171,6 @@ eae2b7
   margin: 0.2rem;
   max-width: 100px;
   text-align: center;
-  align-items: center;
 }
 
 .sectionImg {
@@ -181,6 +181,8 @@ eae2b7
 }
 
 .sectionText {
+  align-items: center;
+  color: #590010;
   display: flex;
   flex-flow: row wrap;
   font-size: 1rem;
@@ -188,18 +190,16 @@ eae2b7
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #590010;
   word-break: break-all;
-  align-items: center;
 }
 
 .master {
-  margin-left: 20px;
+  align-items: center;
   display: flex;
   flex-flow: row wrap;
   height: 500px;
+  margin-left: 20px;
   max-width: 360px;
-  align-items: center;
 }
 
 .search {
@@ -207,19 +207,19 @@ eae2b7
   background-color: #eae2b7;
   border-radius: 5px;
   box-shadow: 0 3px 5px 0 #590010;
+  color: #590010;
   display: inline;
-  position: absolute;
   text-align: center;
   top: 55px;
+  position: absolute;
   width: 360px;
-  color: #590010;
 }
 
 .search input {
   border-radius: 10px;
   border: 2px ridge #590010;
-  margin: 5px;
   color: #590010;
+  margin: 5px;
 }
 
 .search button {
@@ -227,49 +227,49 @@ eae2b7
   border-style: solid;
   color: #590010;
   margin-bottom: 10px;
+  padding: 5px;
   width: 100px;
-  padding: 5px
 }
 
 .search label {
   padding: 0 5px;
 }
 .category {
-  display: flex row;
-  width: 100%;
-  justify-content: space-between;
   align-content: stretch;
+  display: flex row;
+  justify-content: space-between;
   margin-left: 4px;
+  width: 100%;
 }
 
 .category input {
+  align-self: stretch;
   display: flex row;
-  flex-wrap: nowrap;
   border: 1px solid #590010;
   border-top: none;
   border-left: none;
-  border-radius: 5px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 0 #590010;
+  color: #590010;
+  flex-wrap: nowrap;
   padding: 5px;
   margin-left: 3px;
-  color: #590010;
-  align-self: stretch;
-  box-shadow: 0px 1px 1px 0 #590010;
 }
 
 .category input:hover {
-  transition: all .3s ease;
   background-color: #cf8f38;
+  transition: all .3s ease;
 }
 
 .explorer {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   height: 500px;
   margin: auto;
   width: 50%;
-  align-items: center;
-  flex-direction: column;
 }
 
 .explorer a {
@@ -277,47 +277,46 @@ eae2b7
 }
 
 .explorerBtn {
-  margin: 20px;
-  padding: 10px;
-  color: #590010;
-  background-color: #eae2b7;
-  flex-flow: row column;
   align-items: center;
-  width: 200px;
+  background-color: #eae2b7;
   border: 1px solid #590010;
   border-radius: 5px;
+  color: #590010;
+  flex-flow: row column;
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
 }
 
 .explorerLabel {
-  margin: 5px 20px;
-  padding: 10px;
-  color: #590010;
-  background-color: #eae2b7;
-  flex-flow: row column;
   align-items: center;
+  background-color: #eae2b7;
   border-radius: 5px;
+  color: #590010;
+  flex-flow: row column;
+  margin: 5px 20px;
   padding: 5px;
   width: 310px;
 }
 
 .loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 120px;
-  height: 120px;
-  margin: -76px 0 0 -76px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
   border: 16px solid #eae2b7;
   border-radius: 50%;
   border-top: 16px solid #cf8f38;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  height: 120px;
+  left: 50%;
+  margin: -76px 0 0 -76px;
+  position: absolute;
+  top: 50%;
+  width: 120px;
+  z-index: 1;
 }
 
 .detail {
-  display: flex;
   color: #590010;
+  display: flex;
 }
 
 .detail h1 {
@@ -329,12 +328,12 @@ eae2b7
 }
 
 .detail button {
+  background-color: white;
+  border: none;
   height: 2.5rem;
   margin: 0;
   padding: 0;
   width: 3rem;
-  border: none;
-  background-color: white;
 }
 
 
