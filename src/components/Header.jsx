@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import searchIcon from '../images/searchIcon.svg';
 import profileIcon from '../images/profileIcon.svg';
-import '../App.css';
+import '../styles/header.css';
 
 function Header({ pageTitle, searchFeat }) {
   const [showSearchBar, setShowSearchBar] = useState(false);

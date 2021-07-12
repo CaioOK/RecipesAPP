@@ -1,0 +1,35 @@
+.explorer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin: auto;
+  width: 50%;
+}
+
+.explorer a {
+  padding-top: 20px;
+}
+
+.explorerBtn {
+  align-items: center;
+  background-color: #eae2b7;
+  border: 1px solid #590010;
+  border-radius: 5px;
+  color: #590010;
+  flex-flow: row column;
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
+}
+
+.explorerLabel {
+  align-items: center;
+  background-color: #eae2b7;
+  border-radius: 5px;
+  color: #590010;
+  flex-flow: row column;
+  margin: 5px 20px;
+  padding: 5px;
+  width: 310px;
+}

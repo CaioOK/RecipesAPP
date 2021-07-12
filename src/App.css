@@ -1,7 +1,7 @@
 /* Color Gradiente
-cf8f38
-eae2b7
-590010 */
+cf8f38 Laranjito
+eae2b7 Bege frise
+590010 Vinho chique*/
 
 .meals {
   align-items: center;
@@ -15,10 +15,10 @@ eae2b7
   width: 100%;
 }
 
-.rocksGlass {
+/* .rocksGlass {
   animation: shake 1s infinite ease;
   max-height: 80vh;
-}
+} */
 
 /*
 #iceLeft {
@@ -71,7 +71,7 @@ eae2b7
     transform: rotate(-10deg);
   }
 }
-
+/* 
 .footer {
   align-items: center;
   background-color: #cf8f38;
@@ -89,10 +89,10 @@ eae2b7
   margin: 0;
   padding: 0;
   width: 3rem;
-}
+} */
 
 /* Login Ref: https://codepen.io/shayanea/pen/eVMMgO */
-.loginContainer {
+/* .loginContainer {
   background: linear-gradient(219deg, rgba(207,143,56,1) 0%, rgba(215,166,92,1) 7%, rgba(234,226,183,1) 100%);
   min-height: 100vh;
 }
@@ -129,8 +129,8 @@ eae2b7
   border: 2px solid #eae2b7;
   border-radius: 10px;
   width: 100%;
-}
-
+} */
+/* 
 .header {
   align-items: center;
   background-color: #cf8f38;
@@ -159,8 +159,8 @@ eae2b7
   border: none;
   box-shadow: none;
   text-shadow: none;
-}
-
+} */
+/* 
 .section {
   align-items: center;
   border-bottom: 3px solid #590010;
@@ -200,8 +200,8 @@ eae2b7
   height: 500px;
   margin-left: 20px;
   max-width: 360px;
-}
-
+} */
+/* 
 .search {
   align-items: center;
   background-color: #eae2b7;
@@ -233,8 +233,8 @@ eae2b7
 
 .search label {
   padding: 0 5px;
-}
-
+} */
+/* 
 .category {
   align-content: stretch;
   display: flex row;
@@ -262,8 +262,8 @@ eae2b7
 .category input:hover {
   background-color: #cf8f38;
   transition: all .3s ease;
-}
-
+} */
+/* 
 .explorer {
   align-items: center;
   display: flex;
@@ -298,7 +298,7 @@ eae2b7
   margin: 5px 20px;
   padding: 5px;
   width: 310px;
-}
+} */
 
 .loader {
   -webkit-animation: spin 2s linear infinite;

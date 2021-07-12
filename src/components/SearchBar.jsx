@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../contexts/MyContext';
-import '../App.css';
+import '../styles/header.css';
 
 function SearchBar() {
   const [radioType, setRadioType] = useState('');

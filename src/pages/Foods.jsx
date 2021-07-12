@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
 import Loading from '../components/Loading';
-import '../App.css';
+import '../styles/recipes.css';
 
 function Foods({ history }) {
   const { meals, setUserPage, noResultsFound, setNoResultsFound, shouldRedirect,

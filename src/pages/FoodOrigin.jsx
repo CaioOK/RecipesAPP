@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
 import Loading from '../components/Loading';
-import '../App.css';
+import '../styles/explorer.css';
 
 function FoodOrigin() {
   const { mealsOrigin, meals, setMealsUrl } = useContext(MyContext);
