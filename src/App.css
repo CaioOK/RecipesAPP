@@ -2,7 +2,6 @@
 cf8f38 Laranjito
 eae2b7 Bege frise
 590010 Vinho chique*/
-
 .meals {
   align-items: center;
   background: #eae2b7;
@@ -15,16 +14,7 @@ eae2b7 Bege frise
   width: 100%;
 }
 
-.meals > .logo {
-  animation: shake 1.5s infinite ease;
-  color: #eae2b7;
-  font-family: Montserrat , sans-serif;
-  font-size: 3em;
-  font-weight: 900;
-}
-
 .loader {
-  -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
   border: 16px solid #eae2b7;
   border-radius: 50%;
@@ -61,6 +51,7 @@ eae2b7 Bege frise
 }
 
 @keyframes spin {
+
   0% { transform: rotate(0deg); }
 
   100% { transform: rotate(360deg); }
