@@ -23,36 +23,6 @@ eae2b7 Bege frise
   font-weight: 900;
 }
 
-@keyframes shake {
-
-  0% {
-    transform: rotate(5deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(5deg);
-  }
-}
-
-@keyframes clink {
-
-  0% {
-    transform: rotate(-10deg);
-  }
-
-  50% {
-    transform: rotate(20deg);
-  }
-
-  100% {
-    transform: rotate(-10deg);
-  }
-}
-
 .loader {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
@@ -88,13 +58,6 @@ eae2b7 Bege frise
   margin: 0;
   padding: 0;
   width: 3rem;
-}
-
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-
-  100% { -webkit-transform: rotate(360deg); }
-
 }
 
 @keyframes spin {

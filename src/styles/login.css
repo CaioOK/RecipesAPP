@@ -1,5 +1,4 @@
 .loginContainer {
-  background: linear-gradient(219deg, rgba(207,143,56,1) 0%, rgba(215,166,92,1) 7%, rgba(234,226,183,1) 100%);
   min-height: 100vh;
 }
 
@@ -17,7 +16,7 @@
 
 .login button:hover {
   background-color: #eae2b7;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .input {
