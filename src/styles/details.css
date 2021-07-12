@@ -5,12 +5,12 @@
 
 .detail h1 {
   border-bottom: 1px solid #cf8f38;
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 .detailContainer {
   display: flex;
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 .detail button {
@@ -67,7 +67,7 @@
 
 .making h1 {
   border-bottom: 1px solid #cf8f38;
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 .makingImg {
