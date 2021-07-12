@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 
+const copy = require('clipboard-copy');
+
 function ShareBtn({ id, kind, testId }) {
   const [copied, setCopied] = useState(false);
   const kindOf = kind === 'Meal' ? 'comidas' : 'bebidas';
 
   const handleClick = () => {
-    if (window.clipboardData) {
-      window.clipboardData.clearData();
-    }
     const urlToCopy = `http://localhost:3000/${kindOf}/${id}`;
-    const elem = document.createElement('textarea');
-    elem.value = urlToCopy;
-    document.body.appendChild(elem);
-    elem.select();
-    document.execCommand('copy');
-    document.body.removeChild(elem);
+
+    copy(urlToCopy);
     setCopied(!copied);
   };
 

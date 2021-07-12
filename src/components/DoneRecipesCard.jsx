@@ -10,6 +10,8 @@ function DoneRecipesCard({ recipe:
   if (area !== '' && alcoholicOrNot === '') topText = `${area} - ${category}`;
   if (typeof tags !== 'string') allTags = tags;
 
+  const kind = (type === 'comida') ? 'Meal' : 'Drink';
+
   return (
     <div>
       <Link to={ `/${type}s/${id}` }>
@@ -26,18 +28,20 @@ function DoneRecipesCard({ recipe:
       <ShareBtn
         testId={ `${index}-horizontal-share-btn` }
         id={ id }
-        kind={ type }
+        kind={ kind }
         src="src/images/shareIcon.svg"
       />
-      {allTags.map((tagName) => (
+      { allTags
+        ? allTags.map((tagName) => (
 
-        <span
-          key={ `${tagName}${id}` }
-          data-testid={ `${index}-${tagName}-horizontal-tag` }
-        >
-          {tags}
-        </span>
-      ))}
+          <span
+            key={ `${tagName}${id}` }
+            data-testid={ `${index}-${tagName}-horizontal-tag` }
+          >
+            {tags}
+          </span>
+        ))
+        : <div />}
     </div>
   );
 }
