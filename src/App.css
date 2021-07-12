@@ -29,28 +29,6 @@ eae2b7 Bege frise
   z-index: 1;
 }
 
-.detail {
-  color: #590010;
-  display: flex;
-}
-
-.detail h1 {
-  border-bottom: 1px solid #cf8f38;
-}
-
-.detailContainer {
-  display: flex;
-}
-
-.detail button {
-  background-color: white;
-  border: none;
-  height: 2.5rem;
-  margin: 0;
-  padding: 0;
-  width: 3rem;
-}
-
 @keyframes spin {
 
   0% { transform: rotate(0deg); }

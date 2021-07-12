@@ -2,14 +2,22 @@
   display: flex;
   flex-direction: column;
   white-space: nowrap;
-  width: 51%;
+  width: 40%;
+}
+
+.inScreen h4 {
+  font-size: 15px;
+}
+
+.inScreen h3 {
+  font-size: 20px;
 }
 
 .scroll {
-  background-color: #cbcbcb;
+  background-color: #cf8f38;
   display: flex;
   flex-direction: row;
-  margin: 4px;
+  margin: 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 4px;

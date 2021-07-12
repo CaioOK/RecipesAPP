@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './RecomendationCards.css';
+import '../styles/RecomendationCards.css';
 
 function RecomendationCards({ dataForCards }) {
   useEffect(() => {
