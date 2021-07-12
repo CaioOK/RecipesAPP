@@ -12,25 +12,25 @@ const kindOf = (history) => {
 
 function RecipesFav({ history }) {
   const storedFavoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
-  const [doneRecipesToShow, setDoneRecipesToShow] = useState(storedFavoriteRecipes);
+  const [favRecipesToShow, setFavRecipesToShow] = useState(storedFavoriteRecipes);
   const kind = kindOf(history);
 
   return (
     <div>
       <Header pageTitle="Receitas Favoritas" searchFeat={ false } />
-      <h1>Olá eu sou a pagina de Receitas Favoritas</h1>
       <DoneRecipesBar
-        setRecipes={ setDoneRecipesToShow }
+        setRecipes={ setFavRecipesToShow }
         recipes={ storedFavoriteRecipes }
       />
       <div>
-        {doneRecipesToShow.map((recipe, index) => (
+        {favRecipesToShow.map((recipe, index) => (
           <div key={ `${recipe.id}-done-card${index}` }>
             <FavouriteBtn
               recipe={ recipe }
               kind={ kind }
               id={ recipe.id }
               index={ index }
+              setFavRecipesToShow={ setFavRecipesToShow }
             />
             <DoneRecipesCard
               recipe={ recipe }
