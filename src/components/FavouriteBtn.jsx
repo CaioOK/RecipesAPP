@@ -3,27 +3,35 @@ import PropTypes from 'prop-types';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
-function setMyStorage(recipe, kind, id, heart) {
-  const myRecipeObj = {
-    id: recipe[`id${kind}`],
+function createMyObj(recipe, kind) {
+  return {
+    id: recipe[`id${kind}`] || recipe.id,
     type: kind === 'Meal' ? 'comida' : 'bebida',
-    area: recipe.strArea ? recipe.strArea : '',
-    category: recipe.strCategory ? recipe.strCategory : '',
-    alcoholicOrNot: recipe.strAlcoholic ? recipe.strAlcoholic : '',
-    name: recipe[`str${kind}`],
-    image: recipe[`str${kind}Thumb`],
+    area: (recipe.strArea ? recipe.strArea : '') || (recipe.area || ''),
+    category: (recipe.strCategory ? recipe.strCategory : '') || recipe.category,
+    alcoholicOrNot: (recipe.strAlcoholic ? recipe.strAlcoholic : '')
+      || (recipe.alcoholicOrNot || ''),
+    name: (recipe[`str${kind}`] || recipe.name),
+    image: (recipe[`str${kind}Thumb`]) || recipe.image,
   };
+}
+
+function setMyStorage(recipe, kind, id, heart) {
+  const myRecipeObj = createMyObj(recipe, kind);
   const myStorage = JSON.parse(localStorage.getItem('favoriteRecipes'));
-  if (heart && recipe[`id${kind}`]) {
+  const isRepeted = myStorage.find((e) => e.id === myRecipeObj.id);
+  if (((heart && recipe[`id${kind}`] && !isRepeted)
+    || (heart && recipe.id && isRepeted))) {
     const newStorage = myStorage.concat(myRecipeObj);
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
-  } else {
+  }
+  if (!heart) {
     const newStorage = myStorage.filter((e) => e.id !== id);
     localStorage.setItem('favoriteRecipes', JSON.stringify(newStorage));
   }
 }
 
-function FavouriteBtn({ id, kind, recipe }) {
+function FavouriteBtn({ id, kind, recipe, index }) {
   const [heart, setHeart] = useState(JSON.parse(localStorage.getItem('favoriteRecipes'))
     .find((e) => e.id === id));
 
@@ -43,7 +51,8 @@ function FavouriteBtn({ id, kind, recipe }) {
       type="button"
       src={ heart ? blackHeartIcon : whiteHeartIcon }
       onClick={ () => setHeart(!heart) }
-      data-testid="favorite-btn"
+      data-testid={ index
+        || index === 0 ? `${index}-horizontal-favorite-btn` : 'favorite-btn' }
     >
       <img
         src={ heart ? blackHeartIcon : whiteHeartIcon }
@@ -57,6 +66,7 @@ FavouriteBtn.propTypes = {
   recipe: PropTypes.shape().isRequired,
   kind: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default FavouriteBtn;

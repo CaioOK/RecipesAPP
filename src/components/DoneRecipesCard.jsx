@@ -29,15 +29,17 @@ function DoneRecipesCard({ recipe:
         kind={ type }
         src="src/images/shareIcon.svg"
       />
-      {allTags.map((tagName) => (
+      { allTags
+        ? allTags.map((tagName) => (
 
-        <span
-          key={ `${tagName}${id}` }
-          data-testid={ `${index}-${tagName}-horizontal-tag` }
-        >
-          {tags}
-        </span>
-      ))}
+          <span
+            key={ `${tagName}${id}` }
+            data-testid={ `${index}-${tagName}-horizontal-tag` }
+          >
+            {tags}
+          </span>
+        ))
+        : <div />}
     </div>
   );
 }

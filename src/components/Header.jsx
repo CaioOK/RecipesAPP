@@ -40,12 +40,12 @@ function Header({ pageTitle, searchFeat }) {
       {
         searchFeat
           ? createSearchIcon()
-          : <div />
+          : null
       }
       {
         showSearchBar
           ? <SearchBar />
-          : <div />
+          : null
       }
     </header>
   );
