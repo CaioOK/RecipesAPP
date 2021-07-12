@@ -10,6 +10,8 @@ function DoneRecipesCard({ recipe:
   if (area !== '' && alcoholicOrNot === '') topText = `${area} - ${category}`;
   if (typeof tags !== 'string') allTags = tags;
 
+  const kind = (type === 'comida') ? 'Meal' : 'Drink';
+
   return (
     <div>
       <Link to={ `/${type}s/${id}` }>
@@ -26,7 +28,7 @@ function DoneRecipesCard({ recipe:
       <ShareBtn
         testId={ `${index}-horizontal-share-btn` }
         id={ id }
-        kind={ type }
+        kind={ kind }
         src="src/images/shareIcon.svg"
       />
       { allTags
