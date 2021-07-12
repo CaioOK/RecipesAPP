@@ -52,9 +52,7 @@
   border: 1px solid #590010;
   border-left: none;
   border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-radius: 5px;
+  border-radius: 0 0 0 5px;
   box-shadow: 0 1px 1px 0 #590010;
   color: #590010;
   display: flex row;
