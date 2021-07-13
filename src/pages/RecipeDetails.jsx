@@ -10,6 +10,7 @@ import ShareBtn from '../components/ShareBtn';
 import kindOf from '../services/kindOF';
 import FavouriteBtn from '../components/FavouriteBtn';
 import '../styles/details.css';
+import IngredientsAndMeasures from '../components/IngredientsAndMeasures';
 
 function RecipeDetails({ match, history }) {
   const [recipe, setRecipe] = useState('');
