@@ -9,7 +9,7 @@ function StartRecipeButton({ match: { url, params: { id } } }) {
   return (
     <Link
       style={ { position: 'fixed', //  source : https://www.w3schools.com/css/css_positioning.asp
-        bottom: '5px',
+        bottom: '0px',
         right: '5px',
         textDecoration: 'none', // source : https://www.w3schools.com/css/css_link.asp
         color: '#eae2b7',
