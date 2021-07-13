@@ -19,7 +19,7 @@ function FoodOrigin() {
   };
   console.log(meals);
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar Origem" searchFeat />
       <select
         data-testid="explore-by-area-dropdown"
@@ -36,7 +36,7 @@ function FoodOrigin() {
         ))}
       </select>
 
-      <div className="master">
+      <main className="master">
         {
           (
             (!meals.length) ? <h3>Carregando...</h3>
@@ -52,9 +52,9 @@ function FoodOrigin() {
               ))
           )
         }
-      </div>
+      </main>
       <Footer />
-    </div>
+    </section>
   );
 }
 

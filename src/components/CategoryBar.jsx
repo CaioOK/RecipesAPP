@@ -48,7 +48,7 @@ function CategoryBar({ categories, recipeType }) {
   if (!categories.length) return <span>Loading categories...</span>;
 
   return (
-    <section>
+    <nav>
       <input
         type="button"
         value="All"
@@ -63,7 +63,7 @@ function CategoryBar({ categories, recipeType }) {
           data-testid={ `${strCategory}-category-filter` }
           onClick={ (event) => handeClick(event) }
         />))}
-    </section>
+    </nav>
   );
 }
 

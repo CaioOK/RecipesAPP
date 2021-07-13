@@ -25,26 +25,28 @@ function Perfil({ history }) {
   }
 
   return (
-    <div>
+    <section>
       <Header pageTitle="Perfil" searchFeat={ false } />
       <h3 data-testid="profile-email">{ myEmail }</h3>
-      <button data-testid="profile-done-btn" type="button">
-        <Link to="/receitas-feitas">Receitas Feitas</Link>
-      </button>
-      <br />
-      <button data-testid="profile-favorite-btn" type="button">
-        <Link to="/receitas-favoritas">Receitas Favoritas</Link>
-      </button>
-      <br />
-      <button
-        data-testid="profile-logout-btn"
-        type="button"
-        onClick={ handleClick }
-      >
-        Sair
-      </button>
+      <nav>
+        <button data-testid="profile-done-btn" type="button">
+          <Link to="/receitas-feitas">Receitas Feitas</Link>
+        </button>
+        <br />
+        <button data-testid="profile-favorite-btn" type="button">
+          <Link to="/receitas-favoritas">Receitas Favoritas</Link>
+        </button>
+        <br />
+        <button
+          data-testid="profile-logout-btn"
+          type="button"
+          onClick={ handleClick }
+        >
+          Sair
+        </button>
+      </nav>
       <Footer />
-    </div>
+    </section>
   );
 }
 

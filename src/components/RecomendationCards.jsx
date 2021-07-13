@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './RecomendationCards.css';
+import { Link } from 'react-router-dom';
 
-function RecomendationCards({ dataForCards }) {
+function RecomendationCards({ dataForCards, linkToRedirect }) {
   useEffect(() => {
     console.log(dataForCards);
   }, [dataForCards]);
   return (
-    <div className="scroll">
+    <nav className="scroll">
       {dataForCards && dataForCards.map((data, i) => (
         <section className="inScreen" key={ i } data-testid={ `${i}-recomendation-card` }>
           {' '}
-          <img
-            src={ data.strMealThumb || data.strDrinkThumb }
-            alt="some food"
-            data-testid="recipe-photo"
-          />
+          {console.log(linkToRedirect)}
+          <Link to={ `${linkToRedirect}/${data.idMeal || data.idDrink}` }>
+            <img
+              src={ data.strMealThumb || data.strDrinkThumb }
+              alt="some food"
+              data-testid="recipe-photo"
+            />
+          </Link>
           <h4>
             { data.strAlcoholic }
             <br />
@@ -26,15 +30,16 @@ function RecomendationCards({ dataForCards }) {
           </h3>
         </section>
       ))}
-    </div>
+    </nav>
   );
 }
 
 RecomendationCards.propTypes = {
+  linkToRedirect: PropTypes.string,
   dataForCards: PropTypes.shape(
     { map: PropTypes.func,
     },
-  ).isRequired,
-};
+  ),
+}.isRequired;
 
 export default RecomendationCards;

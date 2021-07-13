@@ -13,9 +13,9 @@ function DrinkIngredients() {
   };
 
   return (
-    <div>
+    <main>
       <Header pageTitle="Explorar Ingredientes" searchFeat={ false } />
-      <div className="master">
+      <section className="master">
         {
           (
             (!drinksIngredient.length) ? <h3>Carregando...</h3>
@@ -50,9 +50,9 @@ function DrinkIngredients() {
               ))
           )
         }
-      </div>
+      </section>
       <Footer />
-    </div>
+    </main>
   );
 }
 

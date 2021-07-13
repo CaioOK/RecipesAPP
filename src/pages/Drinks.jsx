@@ -41,15 +41,15 @@ function Drinks({ history }) {
   }
 
   if (noResultsFound) {
-    alert(message);
+    setTimeout(() => alert(message), 1);
     setNoResultsFound(false);
   }
 
   return (
-    <div>
+    <main>
       <Header pageTitle="Bebidas" searchFeat />
       <CategoryBar categories={ categories } recipeType="drinks" />
-      <div className="master">
+      <section className="master">
         {
           (
             (!drinks.length) ? <h3>Carregando...</h3>
@@ -65,9 +65,9 @@ function Drinks({ history }) {
               ))
           )
         }
-      </div>
+      </section>
       <Footer />
-    </div>
+    </main>
   );
 }
 

@@ -16,30 +16,28 @@ function RecipesFav({ history }) {
   const kind = kindOf(history);
 
   return (
-    <div>
+    <section>
       <Header pageTitle="Receitas Favoritas" searchFeat={ false } />
       <DoneRecipesBar
         setRecipes={ setFavRecipesToShow }
         recipes={ storedFavoriteRecipes }
       />
-      <div>
-        {favRecipesToShow.map((recipe, index) => (
-          <div key={ `${recipe.id}-done-card${index}` }>
-            <FavouriteBtn
-              recipe={ recipe }
-              kind={ kind }
-              id={ recipe.id }
-              index={ index }
-              setFavRecipesToShow={ setFavRecipesToShow }
-            />
-            <DoneRecipesCard
-              recipe={ recipe }
-              index={ index }
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+      {favRecipesToShow.map((recipe, index) => (
+        <main key={ `${recipe.id}-done-card${index}` }>
+          <FavouriteBtn
+            recipe={ recipe }
+            kind={ kind }
+            id={ recipe.id }
+            index={ index }
+            setFavRecipesToShow={ setFavRecipesToShow }
+          />
+          <DoneRecipesCard
+            recipe={ recipe }
+            index={ index }
+          />
+        </main>
+      ))}
+    </section>
   );
 }
 

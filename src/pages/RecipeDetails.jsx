@@ -20,6 +20,7 @@ function RecipeDetails({ match, history }) {
   const [category, setCategory] = useState('loadin...');
   const [url, setUrl] = useState('https://www.youtube.com/embed/IEDEtZ4UVtI');
   const [recomendationCardsData, setRecomendationCardsData] = useState('');
+  const [linkToRedirect, setLinkToRedirect] = useState('');
   useEffect(() => {
     console.log(match, !!recipe);
     if (recipe) {
@@ -41,6 +42,7 @@ function RecipeDetails({ match, history }) {
         setAlcoholic(drinks[0].strAlcoholic);
         setRecipe(drinks[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/comidas');
       } else {
         keyURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
         const data = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
@@ -48,6 +50,7 @@ function RecipeDetails({ match, history }) {
         const { meals } = await genericFetch(keyURL);
         setRecipe(meals[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/bebidas');
       }
     };
     fetchOfRecipe();
@@ -59,43 +62,52 @@ function RecipeDetails({ match, history }) {
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
           <section style={ { overflowX: 'hidden' } }>
-            <img
-              style={ { width: '100vh' } }
-              src={ thumb }
-              alt="some food"
-              data-testid="recipe-photo"
-            />
-            <h1 data-testid="recipe-title">
-              { foodOrDrink }
-            </h1>
-            <h4 data-testid="recipe-category">
-              { alcoholic }
-              <br />
-              { category }
-            </h4>
-            <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-            <FavouriteBtn
-              recipe={ recipe }
-              id={ match.params.id }
-              kind={ kindOf(history) }
-            />
-            <h2>Ingredients</h2>
-            <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
-            <h2>Instructions</h2>
-            <p data-testid="instructions">
-              { recipe.strInstructions }
-            </p>
-            <iframe
-              title="food-title"
-              data-testid="video"
-              width="420"
-              height="345"
-              src={ url }
-            />
-            <h2>Recommended</h2>
-            <RecomendationCards
-              dataForCards={ recomendationCardsData }
-            />
+            <header>
+              <img
+                style={ { width: '100vh' } }
+                src={ thumb }
+                alt="some food"
+                data-testid="recipe-photo"
+              />
+              <h1 data-testid="recipe-title">
+                { foodOrDrink }
+              </h1>
+              <h4 data-testid="recipe-category">
+                { alcoholic }
+                <br />
+                { category }
+              </h4>
+              <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+              <FavouriteBtn
+                recipe={ recipe }
+                id={ match.params.id }
+                kind={ kindOf(history) }
+              />
+            </header>
+            <main>
+              <h2>Ingredients</h2>
+              <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
+              <article>
+                <h2>Instructions</h2>
+                <p data-testid="instructions">
+                  { recipe.strInstructions }
+                </p>
+              </article>
+              <iframe
+                title="food-title"
+                data-testid="video"
+                width="420"
+                height="345"
+                src={ url }
+              />
+            </main>
+            <footer>
+              <h2>Recommended</h2>
+              <RecomendationCards
+                dataForCards={ recomendationCardsData }
+                linkToRedirect={ linkToRedirect }
+              />
+            </footer>
             <StartRecipeButton match={ match } />
           </section>)}
     </section>

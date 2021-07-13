@@ -39,15 +39,15 @@ function Foods({ history }) {
   if (meals.length === 1 && shouldRedirect) history.push(`/comidas/${meals[0].idMeal}`);
 
   if (noResultsFound) {
-    alert(message);
+    setTimeout(() => alert(message), 1);
     setNoResultsFound(false);
   }
 
   return (
-    <div>
+    <main>
       <Header pageTitle="Comidas" searchFeat />
       <CategoryBar categories={ categories } recipeType="meals" />
-      <div className="master">
+      <section className="master">
         {
           (
             (!meals.length) ? <h3>Carregando...</h3>
@@ -63,9 +63,9 @@ function Foods({ history }) {
               ))
           )
         }
-      </div>
+      </section>
       <Footer />
-    </div>
+    </main>
   );
 }
 

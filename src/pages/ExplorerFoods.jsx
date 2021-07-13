@@ -11,35 +11,36 @@ function ExplorerFoods() {
     return (<h3>Carregando...</h3>);
   }
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar Comidas" searchFeat={ false } />
-      <Link to="/explorar/comidas/ingredientes">
-        <button
-          data-testid="explore-by-ingredient"
-          type="button"
-        >
-          Por Ingredientes
-        </button>
-      </Link>
-      <Link to="/explorar/comidas/area">
-        <button
-          data-testid="explore-by-area"
-          type="button"
-        >
-          Por Local de Origem
-        </button>
-      </Link>
-      <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
-        <button
-          data-testid="explore-surprise"
-          type="button"
-        >
-          Me Surpreenda!
-        </button>
-      </Link>
+      <nav>
+        <Link to="/explorar/comidas/ingredientes">
+          <button
+            data-testid="explore-by-ingredient"
+            type="button"
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <Link to="/explorar/comidas/area">
+          <button
+            data-testid="explore-by-area"
+            type="button"
+          >
+            Por Local de Origem
+          </button>
+        </Link>
+        <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
+          <button
+            data-testid="explore-surprise"
+            type="button"
+          >
+            Me Surpreenda!
+          </button>
+        </Link>
+      </nav>
       <Footer />
-    </div>
-
+    </section>
   );
 }
 
