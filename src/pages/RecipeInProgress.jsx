@@ -29,9 +29,7 @@ function RecipeInProgress({ match, history }) {
   }, [match, history]);
 
   return (
-    <div>
-      <InProgress recipe={ recipe } history={ history } id={ match.params.id } />
-    </div>
+    <InProgress recipe={ recipe } history={ history } id={ match.params.id } />
   );
 }
 
