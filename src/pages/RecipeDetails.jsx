@@ -63,31 +63,33 @@ function RecipeDetails({ match, history }) {
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
           <section style={ { overflowX: 'hidden' } }>
-            <img
-              style={ { width: '100%' } }
-              src={ thumb }
-              alt="some food"
-              data-testid="recipe-photo"
-            />
-            <h1 data-testid="recipe-title">
-              { foodOrDrink }
-            </h1>
-            <div className="container">
-              <h4 data-testid="recipe-category">
-                { alcoholic }
-                <br />
-                { category }
-              </h4>
-            </div>
-            <div className="detailContainer">
-              <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-              <FavouriteBtn
-                recipe={ recipe }
-                id={ match.params.id }
-                kind={ kindOf(history) }
+            <header>
+              <img
+                style={ { width: '100%' } }
+                src={ thumb }
+                alt="some food"
+                data-testid="recipe-photo"
               />
-            </div>
-            <div className="ingredient">
+              <h1 data-testid="recipe-title">
+                { foodOrDrink }
+              </h1>
+              <section className="container">
+                <h4 data-testid="recipe-category">
+                  { alcoholic }
+                  <br />
+                  { category }
+                </h4>
+              </section>
+              <section className="detailContainer">
+                <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+                <FavouriteBtn
+                  recipe={ recipe }
+                  id={ match.params.id }
+                  kind={ kindOf(history) }
+                />
+              </section>
+            </header>
+            <main className="ingredient">
               <h2>Ingredients</h2>
               <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
               <article>
@@ -103,11 +105,12 @@ function RecipeDetails({ match, history }) {
                 height="345"
                 src={ url }
               />
-            </div>
+            </main>
             <footer className="instruction">
               <h2>Recommended</h2>
               <RecomendationCards
                 dataForCards={ recomendationCardsData }
+                linkToRedirect={ linkToRedirect }
               />
             </footer>
             <StartRecipeButton match={ match } />

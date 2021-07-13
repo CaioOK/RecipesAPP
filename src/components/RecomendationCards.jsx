@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/RecomendationCards.css';
-import './RecomendationCards.css';
 import { Link } from 'react-router-dom';
 
 function RecomendationCards({ dataForCards, linkToRedirect }) {
