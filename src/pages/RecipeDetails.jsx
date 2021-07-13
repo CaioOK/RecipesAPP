@@ -9,6 +9,7 @@ import StartRecipeButton from '../components/StartRecipeButton';
 import ShareBtn from '../components/ShareBtn';
 import kindOf from '../services/kindOF';
 import FavouriteBtn from '../components/FavouriteBtn';
+import IngredientsAndMeasures from '../components/IngredientsAndMeasures';
 
 function RecipeDetails({ match, history }) {
   const [recipe, setRecipe] = useState('');
@@ -72,30 +73,14 @@ function RecipeDetails({ match, history }) {
               <br />
               { category }
             </h4>
-            {/* <button type="button" data-testid="share-btn">
-              Share
-            </button> */}
             <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-            {/* <button type="button" data-testid="favorite-btn">
-              Favorite
-            </button> */}
             <FavouriteBtn
               recipe={ recipe }
               id={ match.params.id }
               kind={ kindOf(history) }
             />
             <h2>Ingredients</h2>
-            <ol>
-              {ingredientsAndMeasures.length ? ingredientsAndMeasures[0]
-                .map((ingredient, i) => (
-                  <li
-                    key={ `${ingredient}${i}` }
-                    data-testid={ `${i}-ingredient-name-and-measure` }
-                  >
-                    { `${ingredient[`strIngredient${i + 1}`]} - ${// strIngredients and strMeasure starts in strIngredients1 and strMeasure1.
-                      ingredientsAndMeasures[1][i][`strMeasure${i + 1}`]}`}
-                  </li>)) : 'loading' }
-            </ol>
+            <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
             <h2>Instructions</h2>
             <p data-testid="instructions">
               { recipe.strInstructions }
