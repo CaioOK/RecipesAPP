@@ -15,8 +15,8 @@ function StartRecipeButton({ match: { url, params: { id } } }) {
         color: '#eae2b7',
         backgroundColor: '#590010',
         padding: '10px',
-        borderRadius: '10px',
-        pointerEvents: doneRecipes.includes(id) ? 'none' : '' } }
+        borderRadius: '80%',
+        pointerEvents: doneRecipes.includes(id) ? 'none' : '' } } // source: https://stackoverflow.com/questions/35963070/react-router-how-to-disable-a-link-if-its-active
       data-testid="start-recipe-btn"
       to={ `${url}/in-progress` }
     >
