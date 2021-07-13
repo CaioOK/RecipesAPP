@@ -21,6 +21,7 @@ function RecipeDetails({ match, history }) {
   const [category, setCategory] = useState('loadin...');
   const [url, setUrl] = useState('https://www.youtube.com/embed/IEDEtZ4UVtI');
   const [recomendationCardsData, setRecomendationCardsData] = useState('');
+  const [linkToRedirect, setLinkToRedirect] = useState('');
   useEffect(() => {
     console.log(match, !!recipe);
     if (recipe) {
@@ -42,6 +43,7 @@ function RecipeDetails({ match, history }) {
         setAlcoholic(drinks[0].strAlcoholic);
         setRecipe(drinks[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/comidas');
       } else {
         keyURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
         const data = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
@@ -49,6 +51,7 @@ function RecipeDetails({ match, history }) {
         const { meals } = await genericFetch(keyURL);
         setRecipe(meals[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/bebidas');
       }
     };
     fetchOfRecipe();
@@ -87,10 +90,12 @@ function RecipeDetails({ match, history }) {
             <div className="ingredient">
               <h2>Ingredients</h2>
               <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
-              <h2>Instructions</h2>
-              <p data-testid="instructions">
-                { recipe.strInstructions }
-              </p>
+              <article>
+                <h2>Instructions</h2>
+                <p data-testid="instructions">
+                  { recipe.strInstructions }
+                </p>
+              </article>
               <iframe
                 title="food-title"
                 data-testid="video"
@@ -99,13 +104,13 @@ function RecipeDetails({ match, history }) {
                 src={ url }
               />
             </div>
-            <div className="instruction">
+            <footer className="instruction">
               <h2>Recommended</h2>
               <RecomendationCards
                 dataForCards={ recomendationCardsData }
               />
-              <StartRecipeButton match={ match } />
-            </div>
+            </footer>
+            <StartRecipeButton match={ match } />
           </section>)}
     </section>
   );

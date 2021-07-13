@@ -13,7 +13,7 @@ function DoneRecipesCard({ recipe:
   const kind = (type === 'comida') ? 'Meal' : 'Drink';
 
   return (
-    <div>
+    <section>
       <Link to={ `/${type}s/${id}` }>
         <img
           src={ image }
@@ -42,7 +42,7 @@ function DoneRecipesCard({ recipe:
           </span>
         ))
         : <div />}
-    </div>
+    </section>
   );
 }
 

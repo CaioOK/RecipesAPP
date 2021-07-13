@@ -13,15 +13,15 @@ function FoodIngredients() {
   };
 
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar Ingredientes" searchFeat={ false } />
-      <div className="master">
+      <main className="master">
         {
           (
             (!mealsIngredient.length) ? <h3>Carregando...</h3>
               : mealsIngredient.map((ingredient, index) => (
                 <Link key={ index } to="/Comidas">
-                  <div
+                  <section
                     className="section"
                     data-testid={ `${index}-ingredient-card` }
                     key={ index }
@@ -45,14 +45,14 @@ function FoodIngredients() {
                     >
                       {ingredient.strIngredient}
                     </p>
-                  </div>
+                  </section>
                 </Link>
               ))
           )
         }
-      </div>
+      </main>
       <Footer />
-    </div>
+    </section>
   );
 }
 

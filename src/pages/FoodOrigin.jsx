@@ -20,7 +20,7 @@ function FoodOrigin() {
   };
   console.log(meals);
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar Origem" searchFeat />
       <select
         className="explorerLabel"
@@ -38,7 +38,7 @@ function FoodOrigin() {
         ))}
       </select>
 
-      <div className="master">
+      <main className="master">
         {
           (
             (!meals.length) ? <Loading />
@@ -54,9 +54,9 @@ function FoodOrigin() {
               ))
           )
         }
-      </div>
+      </main>
       <Footer />
-    </div>
+    </section>
   );
 }
 

@@ -12,9 +12,9 @@ function ExplorerDrinks() {
     return (<h3>Carregando...</h3>);
   }
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar Bebidas" searchFeat={ false } />
-      <div className="explorer">
+      <nav className="explorer">
         <Link to="/explorar/bebidas/ingredientes">
           <button
             className="explorerBtn"
@@ -33,9 +33,9 @@ function ExplorerDrinks() {
             Me Surpreenda!
           </button>
         </Link>
-      </div>
+      </nav>
       <Footer />
-    </div>
+    </section>
   );
 }
 
