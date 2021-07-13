@@ -116,13 +116,11 @@ function RecipeDetails({ match, history }) {
                 src={ url }
               />
             </div>
-            <div className="recommend">
-              <h2>Recommended</h2>
-              <RecomendationCards
-                dataForCards={ recomendationCardsData }
-              />
-              <StartRecipeButton match={ match } />
-            </div>
+            <h2>Recommended</h2>
+            <RecomendationCards
+              dataForCards={ recomendationCardsData }
+            />
+            <StartRecipeButton match={ match } />
           </section>)}
     </section>
   );
