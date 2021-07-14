@@ -75,14 +75,14 @@ function RecipeDetails({ match, history }) {
                 <br />
                 { category }
               </h4>
-            </div>
-            <div className="detailContainer">
-              <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-              <FavouriteBtn
-                recipe={ recipe }
-                id={ match.params.id }
-                kind={ kindOf(history) }
-              />
+              <div className="detailContainer">
+                <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+                <FavouriteBtn
+                  recipe={ recipe }
+                  id={ match.params.id }
+                  kind={ kindOf(history) }
+                />
+              </div>
             </div>
             <div className="ingredient">
               <h2>Ingredients</h2>

@@ -1,13 +1,14 @@
-.explorer {
+.profile {
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 500px;
   margin: auto;
   width: 50%;
+  color: #590010;
 }
 
-.explorer::after {
+.profile::after {
   background: url(../images/fundo2.png);
   bottom: 0;
   content: "";
@@ -16,14 +17,14 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -1;   
+  z-index: -1;
 }
 
 .explorer a {
-  padding-top: 20px;
+  text-decoration: none;
 }
 
-.explorerBtn {
+.profileBtn {
   align-items: center;
   background-color: #eae2b7;
   border: 1px solid #590010;
@@ -33,15 +34,4 @@
   margin: 20px;
   padding: 10px;
   width: 200px;
-}
-
-.explorerLabel {
-  align-items: center;
-  background-color: #eae2b7;
-  border-radius: 5px;
-  color: #590010;
-  flex-flow: row column;
-  margin: 5px 20px;
-  padding: 5px;
-  width: 310px;
 }

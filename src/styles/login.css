@@ -2,6 +2,24 @@
   min-height: 100vh;
 }
 
+.loginContainer::after {
+  background: url(../images/fundo1.png);
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.7;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;   
+}
+
+.loginContainer img {
+  margin-top: 30%;
+  margin-left: -20px;
+  width: 100%;
+}
+
 .login {
   color: #590010;
   left: 20%;

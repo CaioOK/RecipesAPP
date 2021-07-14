@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { Redirect } from 'react-router-dom';
 import '../styles/login.css';
+import logo from '../images/chefexperience.png';
 
 function Login({ history }) {
   const [email, setEmail] = useState('');
@@ -53,39 +54,42 @@ function Login({ history }) {
   };
 
   return (
-    <div className="loginContainer">
-      <form className="login">
-        <label htmlFor="email">
-          Email
-          <input
-            className="label"
-            data-testid="email-input"
-            id="email"
-            type="text"
-            value={ email }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="password">
-          Password
-          <input
-            className="label"
-            data-testid="password-input"
-            id="password"
-            type="password"
-            value={ password }
-            onChange={ handleChange }
-          />
-        </label>
-        <button
-          className="input"
-          type="button"
-          data-testid="login-submit-btn"
-          onClick={ handleClick }
-        >
-          Entrar
-        </button>
-      </form>
+    <div className="background">
+      <div className="loginContainer">
+        <img src={ logo } alt="Logo Chef Experience" />
+        <form className="login">
+          <label htmlFor="email">
+            Email
+            <input
+              className="label"
+              data-testid="email-input"
+              id="email"
+              type="text"
+              value={ email }
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="password">
+            Password
+            <input
+              className="label"
+              data-testid="password-input"
+              id="password"
+              type="password"
+              value={ password }
+              onChange={ handleChange }
+            />
+          </label>
+          <button
+            className="input"
+            type="button"
+            data-testid="login-submit-btn"
+            onClick={ handleClick }
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

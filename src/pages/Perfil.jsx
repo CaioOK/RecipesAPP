@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import '../styles/profile.css';
 
 function Perfil({ history }) {
   function getEmail() {
@@ -27,22 +28,26 @@ function Perfil({ history }) {
   return (
     <div>
       <Header pageTitle="Perfil" searchFeat={ false } />
-      <h3 data-testid="profile-email">{ myEmail }</h3>
-      <button data-testid="profile-done-btn" type="button">
-        <Link to="/receitas-feitas">Receitas Feitas</Link>
-      </button>
-      <br />
-      <button data-testid="profile-favorite-btn" type="button">
-        <Link to="/receitas-favoritas">Receitas Favoritas</Link>
-      </button>
-      <br />
-      <button
-        data-testid="profile-logout-btn"
-        type="button"
-        onClick={ handleClick }
-      >
-        Sair
-      </button>
+      <div className="profile">
+        <h3 data-testid="profile-email">{ myEmail }</h3>
+        <button className="profileBtn" data-testid="profile-done-btn" type="button">
+          <Link to="/receitas-feitas">Receitas Feitas</Link>
+        </button>
+        <br />
+        <button className="profileBtn" data-testid="profile-favorite-btn" type="button">
+          <Link to="/receitas-favoritas">Receitas Favoritas</Link>
+        </button>
+        <br />
+        <button
+          className="profileBtn"
+          data-testid="profile-logout-btn"
+          type="button"
+          onClick={ handleClick }
+        >
+          Sair
+        </button>
+
+      </div>
       <Footer />
     </div>
   );
