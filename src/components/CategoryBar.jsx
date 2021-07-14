@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from '../contexts/MyContext';
+import '../styles/header.css';
+import Loading from './Loading';
 
 function CategoryBar({ categories, recipeType }) {
   const { setDrinksUrl, setMealsUrl, setShouldRedirect } = useContext(MyContext);
@@ -45,10 +47,11 @@ function CategoryBar({ categories, recipeType }) {
     }
   };
 
-  if (!categories.length) return <span>Loading categories...</span>;
+  if (!categories.length) return <Loading />;
 
   return (
-    <nav>
+
+    <nav className="category">
       <input
         type="button"
         value="All"

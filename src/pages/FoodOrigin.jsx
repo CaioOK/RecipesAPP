@@ -4,7 +4,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MyContext from '../contexts/MyContext';
 import RecipeCard from '../components/RecipeCard';
-import '../App.css';
+import Loading from '../components/Loading';
+import '../styles/explorer.css';
 
 function FoodOrigin() {
   const { mealsOrigin, meals, setMealsUrl } = useContext(MyContext);
@@ -22,6 +23,7 @@ function FoodOrigin() {
     <section>
       <Header pageTitle="Explorar Origem" searchFeat />
       <select
+        className="explorerLabel"
         data-testid="explore-by-area-dropdown"
         onChange={ (e) => handleFoodsApiRequest(e.target.value) }
       >
@@ -39,7 +41,7 @@ function FoodOrigin() {
       <main className="master">
         {
           (
-            (!meals.length) ? <h3>Carregando...</h3>
+            (!meals.length) ? <Loading />
               : meals.map((meal, index) => (
                 <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
                   <RecipeCard

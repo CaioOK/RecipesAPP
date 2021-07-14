@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 function StartRecipeButton({ match: { url, params: { id } } }) {
   const localS = localStorage.inProgressRecipes;
@@ -8,11 +9,11 @@ function StartRecipeButton({ match: { url, params: { id } } }) {
   return (
     <Link
       style={ { position: 'fixed', //  source : https://www.w3schools.com/css/css_positioning.asp
-        bottom: '0',
-        right: '0',
+        bottom: '0px',
+        right: '5px',
         textDecoration: 'none', // source : https://www.w3schools.com/css/css_link.asp
-        color: 'white',
-        backgroundColor: 'rgb(89, 0, 16)',
+        color: '#eae2b7',
+        backgroundColor: '#590010',
         padding: '10px',
         borderRadius: '80%',
         pointerEvents: doneRecipes.includes(id) ? 'none' : '' } } // source: https://stackoverflow.com/questions/35963070/react-router-how-to-disable-a-link-if-its-active

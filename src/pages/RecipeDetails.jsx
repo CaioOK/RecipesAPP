@@ -9,6 +9,7 @@ import StartRecipeButton from '../components/StartRecipeButton';
 import ShareBtn from '../components/ShareBtn';
 import kindOf from '../services/kindOF';
 import FavouriteBtn from '../components/FavouriteBtn';
+import '../styles/details.css';
 import IngredientsAndMeasures from '../components/IngredientsAndMeasures';
 
 function RecipeDetails({ match, history }) {
@@ -57,14 +58,14 @@ function RecipeDetails({ match, history }) {
   }, [match, recipe]);
 
   return (
-    <section>
+    <section className="detail">
       {/* {console.log(match, !!recipe)} */}
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
           <section style={ { overflowX: 'hidden' } }>
             <header>
               <img
-                style={ { width: '100vh' } }
+                style={ { width: '100%' } }
                 src={ thumb }
                 alt="some food"
                 data-testid="recipe-photo"
@@ -72,19 +73,23 @@ function RecipeDetails({ match, history }) {
               <h1 data-testid="recipe-title">
                 { foodOrDrink }
               </h1>
-              <h4 data-testid="recipe-category">
-                { alcoholic }
-                <br />
-                { category }
-              </h4>
-              <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
-              <FavouriteBtn
-                recipe={ recipe }
-                id={ match.params.id }
-                kind={ kindOf(history) }
-              />
+              <section className="container">
+                <h4 data-testid="recipe-category">
+                  { alcoholic }
+                  <br />
+                  { category }
+                </h4>
+              </section>
+              <section className="detailContainer">
+                <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
+                <FavouriteBtn
+                  recipe={ recipe }
+                  id={ match.params.id }
+                  kind={ kindOf(history) }
+                />
+              </section>
             </header>
-            <main>
+            <main className="ingredient">
               <h2>Ingredients</h2>
               <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
               <article>
@@ -101,7 +106,7 @@ function RecipeDetails({ match, history }) {
                 src={ url }
               />
             </main>
-            <footer>
+            <footer className="instruction">
               <h2>Recommended</h2>
               <RecomendationCards
                 dataForCards={ recomendationCardsData }

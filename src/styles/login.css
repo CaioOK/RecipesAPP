@@ -1,0 +1,36 @@
+.loginContainer {
+  min-height: 100vh;
+}
+
+.login {
+  color: #590010;
+  left: 20%;
+  position: absolute;
+  top: 50%;
+  width: 200px;
+}
+
+.login button {
+  color: #590010;
+}
+
+.login button:hover {
+  background-color: #eae2b7;
+  transition: all 0.3s ease;
+}
+
+.input {
+  background-color: #cf8f38;
+  border: 0;
+  border-bottom: 2px solid #590010;
+  border-radius: 10px;
+  box-shadow: none;
+  height: 50px;
+  width: 100%;
+}
+
+.label {
+  border: 2px solid #eae2b7;
+  border-radius: 10px;
+  width: 100%;
+}

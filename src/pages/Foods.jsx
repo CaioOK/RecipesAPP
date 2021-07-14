@@ -7,7 +7,8 @@ import MyContext from '../contexts/MyContext';
 import Footer from '../components/Footer';
 import genericFetch from '../services/genericFetch';
 import CategoryBar from '../components/CategoryBar';
-import '../App.css';
+import Loading from '../components/Loading';
+import '../styles/recipes.css';
 
 function Foods({ history }) {
   const { meals, setUserPage, noResultsFound, setNoResultsFound, shouldRedirect,
@@ -50,7 +51,7 @@ function Foods({ history }) {
       <section className="master">
         {
           (
-            (!meals.length) ? <h3>Carregando...</h3>
+            (!meals.length) ? <Loading />
               : meals.map((meal, index) => (
                 <Link key={ index } to={ `/comidas/${meal.idMeal}` }>
                   <RecipeCard

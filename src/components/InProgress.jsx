@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import FavouriteBtn from './FavouriteBtn';
 import ShareBtn from './ShareBtn';
+import '../styles/details.css';
 
 if (!localStorage.getItem('favoriteRecipes')) {
   localStorage.setItem('favoriteRecipes', JSON.stringify([]));
@@ -104,21 +105,23 @@ function InProgress({ recipe, history, id }) {
   }
 
   return (
-    <div>
+    <div className="making">
       <img
         data-testid="recipe-photo"
         alt={ `${kind}` }
         src={ recipe[`str${kind}Thumb`] }
-        className="sectionImg"
+        className="makingImg"
       />
       <header>
         <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
       </header>
-      <section>
-        <FavouriteBtn recipe={ recipe } kind={ kind } id={ id } />
-        <ShareBtn id={ id } kind={ kind } />
+      <section className="container">
+        <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
+        <div>
+          <FavouriteBtn recipe={ recipe } kind={ kind } id={ id } />
+          <ShareBtn id={ id } kind={ kind } />
+        </div>
       </section>
-      <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
       <main>
         { ingredientKeys.map((k, index) => (
           <div key={ k }>

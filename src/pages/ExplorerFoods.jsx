@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import '../styles/explorer.css';
 import MyContext from '../contexts/MyContext';
 
 function ExplorerFoods() {
@@ -13,9 +14,10 @@ function ExplorerFoods() {
   return (
     <section>
       <Header pageTitle="Explorar Comidas" searchFeat={ false } />
-      <nav>
+      <nav className="explorer">
         <Link to="/explorar/comidas/ingredientes">
           <button
+            className="explorerBtn"
             data-testid="explore-by-ingredient"
             type="button"
           >
@@ -24,6 +26,7 @@ function ExplorerFoods() {
         </Link>
         <Link to="/explorar/comidas/area">
           <button
+            className="explorerBtn"
             data-testid="explore-by-area"
             type="button"
           >
@@ -32,6 +35,7 @@ function ExplorerFoods() {
         </Link>
         <Link to={ `/comidas/${randomMeals.meals[0].idMeal}` }>
           <button
+            className="explorerBtn"
             data-testid="explore-surprise"
             type="button"
           >
