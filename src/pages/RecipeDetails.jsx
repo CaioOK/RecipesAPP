@@ -21,6 +21,7 @@ function RecipeDetails({ match, history }) {
   const [category, setCategory] = useState('loadin...');
   const [url, setUrl] = useState('https://www.youtube.com/embed/IEDEtZ4UVtI');
   const [recomendationCardsData, setRecomendationCardsData] = useState('');
+  const [linkToRedirect, setLinkToRedirect] = useState('');
   useEffect(() => {
     console.log(match, !!recipe);
     if (recipe) {
@@ -42,6 +43,7 @@ function RecipeDetails({ match, history }) {
         setAlcoholic(drinks[0].strAlcoholic);
         setRecipe(drinks[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/comidas');
       } else {
         keyURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
         const data = await genericFetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
@@ -49,6 +51,7 @@ function RecipeDetails({ match, history }) {
         const { meals } = await genericFetch(keyURL);
         setRecipe(meals[0]);
         setRecomendationCardsData(sixCards);
+        setLinkToRedirect('/bebidas');
       }
     };
     fetchOfRecipe();
@@ -60,37 +63,41 @@ function RecipeDetails({ match, history }) {
       { !ingredientsAndMeasures
         ? <MockRecipeDetails /> : (
           <section style={ { overflowX: 'hidden' } }>
-            <img
-              style={ { width: '100%' } }
-              src={ thumb }
-              alt="some food"
-              data-testid="recipe-photo"
-            />
-            <h1 data-testid="recipe-title">
-              { foodOrDrink }
-            </h1>
-            <div className="container">
-              <h4 data-testid="recipe-category">
-                { alcoholic }
-                <br />
-                { category }
-              </h4>
-              <div className="detailContainer">
+            <header>
+              <img
+                style={ { width: '100%' } }
+                src={ thumb }
+                alt="some food"
+                data-testid="recipe-photo"
+              />
+              <h1 data-testid="recipe-title">
+                { foodOrDrink }
+              </h1>
+              <section className="container">
+                <h4 data-testid="recipe-category">
+                  { alcoholic }
+                  <br />
+                  { category }
+                </h4>
+              </section>
+              <section className="detailContainer">
                 <ShareBtn id={ match.params.id } kind={ kindOf(history) } />
                 <FavouriteBtn
                   recipe={ recipe }
                   id={ match.params.id }
                   kind={ kindOf(history) }
                 />
-              </div>
-            </div>
-            <div className="ingredient">
+              </section>
+            </header>
+            <main className="ingredient">
               <h2>Ingredients</h2>
               <IngredientsAndMeasures ingredientsAndMeasures={ ingredientsAndMeasures } />
-              <h2>Instructions</h2>
-              <p data-testid="instructions">
-                { recipe.strInstructions }
-              </p>
+              <article>
+                <h2>Instructions</h2>
+                <p data-testid="instructions">
+                  { recipe.strInstructions }
+                </p>
+              </article>
               <iframe
                 title="food-title"
                 data-testid="video"
@@ -98,14 +105,15 @@ function RecipeDetails({ match, history }) {
                 height="345"
                 src={ url }
               />
-            </div>
-            <div className="instruction">
+            </main>
+            <footer className="instruction">
               <h2>Recommended</h2>
               <RecomendationCards
                 dataForCards={ recomendationCardsData }
+                linkToRedirect={ linkToRedirect }
               />
-              <StartRecipeButton match={ match } />
-            </div>
+            </footer>
+            <StartRecipeButton match={ match } />
           </section>)}
     </section>
   );

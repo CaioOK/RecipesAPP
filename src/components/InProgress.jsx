@@ -112,33 +112,37 @@ function InProgress({ recipe, history, id }) {
         src={ recipe[`str${kind}Thumb`] }
         className="makingImg"
       />
-      <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
-      <div className="container">
+      <header>
+        <h1 data-testid="recipe-title">{ recipe[`str${kind}`] }</h1>
+      </header>
+      <section className="container">
         <h3 data-testid="recipe-category">{ recipe.strCategory }</h3>
         <div>
           <FavouriteBtn recipe={ recipe } kind={ kind } id={ id } />
           <ShareBtn id={ id } kind={ kind } />
         </div>
-      </div>
-      { ingredientKeys.map((k, index) => (
-        <div key={ k }>
-          <label
-            data-testid={ `${index}-ingredient-step` }
-            htmlFor={ index }
-          >
-            <input
-              defaultChecked={ checkedArr.includes(`${index}`) }
-              type="checkbox"
-              name="ingredients"
-              id={ index }
-              onChange={ (e) => handleChange(e) }
-            />
-            { `${recipe[k]} ${recipe[`strMeasure${index + 1}`]}` }
-          </label>
-          <br />
-        </div>
-      ))}
-      <p data-testid="instructions">{ recipe.strInstructions }</p>
+      </section>
+      <main>
+        { ingredientKeys.map((k, index) => (
+          <div key={ k }>
+            <label
+              data-testid={ `${index}-ingredient-step` }
+              htmlFor={ index }
+            >
+              <input
+                defaultChecked={ checkedArr.includes(`${index}`) }
+                type="checkbox"
+                name="ingredients"
+                id={ index }
+                onChange={ (e) => handleChange(e) }
+              />
+              { `${recipe[k]} ${recipe[`strMeasure${index + 1}`]}` }
+            </label>
+            <br />
+          </div>
+        ))}
+        <p data-testid="instructions">{ recipe.strInstructions }</p>
+      </main>
       <button
         disabled={ finnishBtn }
         type="button"

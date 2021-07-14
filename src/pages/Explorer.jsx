@@ -6,9 +6,9 @@ import '../styles/explorer.css';
 
 function Explorer() {
   return (
-    <div>
+    <section>
       <Header pageTitle="Explorar" searchFeat={ false } />
-      <div className="explorer">
+      <nav className="explorer">
         <Link to="/explorar/comidas">
           <button
             className="explorerBtn"
@@ -27,9 +27,9 @@ function Explorer() {
             Explorar Bebidas
           </button>
         </Link>
-      </div>
+      </nav>
       <Footer />
-    </div>
+    </section>
   );
 }
 

@@ -26,11 +26,11 @@ function Perfil({ history }) {
   }
 
   return (
-    <div>
+    <section>
       <Header pageTitle="Perfil" searchFeat={ false } />
-      <div className="profile">
-        <h3 data-testid="profile-email">{ myEmail }</h3>
-        <button className="profileBtn" data-testid="profile-done-btn" type="button">
+      <h3 data-testid="profile-email">{ myEmail }</h3>
+      <nav>
+        <button data-testid="profile-done-btn" type="button">
           <Link to="/receitas-feitas">Receitas Feitas</Link>
         </button>
         <br />
@@ -46,10 +46,9 @@ function Perfil({ history }) {
         >
           Sair
         </button>
-
-      </div>
+      </nav>
       <Footer />
-    </div>
+    </section>
   );
 }
 

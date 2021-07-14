@@ -11,9 +11,8 @@ function RecipesDone() {
   return (
     <section>
       <Header pageTitle="Receitas Feitas" searchFeat={ false } />
-      <h1>Olá eu sou a pagina de Receitas Feitas</h1>
       <DoneRecipesBar setRecipes={ setDoneRecipesToShow } recipes={ storedDoneRecipes } />
-      <div>
+      <main>
         {doneRecipesToShow.map((recipe, index) => (
           <DoneRecipesCard
             key={ `${recipe.id}-done-card${index}` }
@@ -21,7 +20,7 @@ function RecipesDone() {
             index={ index }
           />
         ))}
-      </div>
+      </main>
     </section>
   );
 }
