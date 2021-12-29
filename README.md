@@ -299,7 +299,7 @@ $ npm start
 
 <h3>
   <img src="https://user-images.githubusercontent.com/78622405/147676282-ae26a47f-2c1c-451e-b767-b54747445734.png" alt="Tela de login"/>
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   <img src="https://user-images.githubusercontent.com/78622405/147676507-acecdcc1-1098-46b7-a055-b0cbc3d1a9bc.png" alt="Tela principal de comidas" />
   <img align="right" height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147679295-d8737000-13c8-4867-9386-50f52bd68c0a.png" alt="Tela de comidas barra de pesquisa" />
 </h3>
@@ -310,7 +310,7 @@ $ npm start
 
 <h3>
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147682226-e8792c1d-b45f-486c-bb1f-529961539880.png" alt="Tela de comidas pesquisando por beef" />
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147678119-8de6ed0d-dad4-4b00-a0b1-7bd40a0de229.png" alt="Tela comidas pesquisando por chicken" />
   <img align="right" height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147682234-314ebcb2-fc09-410d-b6d6-e2d3daea0311.png" alt="Tela de comidas pesquisando por f"/>
 </h3>
@@ -321,7 +321,7 @@ $ npm start
 
 <h3>
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147683248-7d53b261-c514-440b-90f6-4eaaafe57b28.png" alt="Tela principal de bebidas" />
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147683250-7822c214-302c-4d43-ad39-ffde2a4d5654.png" alt="Tela de bebidas pesquisando por milk" />
   <img align="right" height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147683261-4118b2e9-fea3-40a4-9543-043934f9ca09.png" alt="Tela de Comidas Pesquisando por cocktail"/>
 </h3>
@@ -332,7 +332,7 @@ $ npm start
 
 <h3>
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147686262-90a40669-4696-4a6a-8442-1aee8e539b76.png" alt="Tela de detalhes de receita exibindo big mac 1" />
-  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
   <img height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147686136-145f9bca-6582-4e4d-9747-5967ee3769f5.png" alt="Tela de detalhes de receita exibindo big mac 2" />
   <img align="right" height="500" width="230" src="https://user-images.githubusercontent.com/78622405/147686155-55d03ca8-d908-42fe-a315-d3d1e2d217b0.png" alt="Tela de detalhes de receita exibindo big mac 3"/>
 </h3>
