@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/cypress
 
 # production
 /build
@@ -24,7 +25,8 @@ yarn-error.log*
 
 .vscode
 
+*.png
 
-cypress/screenshots/
-cypress/videos/
-cypress/reports
+cypress
+reporter.json
+cypress.json
