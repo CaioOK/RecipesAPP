@@ -44,9 +44,6 @@ Ao clicar em uma receita será redirecionado para uma página onde há uma expli
     - Explorar
       - O usuário pode explorar os diversos ingredientes, explorar receitas pelo local de origem ou selecionar a opção Me Surpreenda onde é exibida uma receita alearória
 
-**Nota**: Este foi o projeto avaliativo final do módulo de Front-End do curso de Desenvolvimento Web full-stack da [Trybe](https://www.betrybe.com/) para colocarmos em prática tudo o que havíamos aprendido até então, como o conhecimento técnico das linguagens e frameworks, e também metodologias ágeis e soft skills.
-Toda a estutura do projeto com as orientações, requisitos, protótipo e kanban foram fornecidos pela [Trybe](https://www.betrybe.com/)
-
 ### Protótipo do projeto
 Para o protótipo utilizando a ferramenta [Figma](https://www.figma.com/)
 <br/>
@@ -65,7 +62,15 @@ Confira aqui o quadro utilizado:
   <img alt="Badge Trello" src="https://img.shields.io/badge/Kanban-Trello-informational?style=for-the-badge">
 </a>
 
+>**NOTA**: <br />
+>Este foi o projeto avaliativo final do módulo de Front-End do curso de Desenvolvimento Web full-stack da [Trybe](https://www.betrybe.com/) para colocarmos em prática tudo o que havíamos aprendido até então, como o conhecimento técnico das linguagens e frameworks, e também metodologias ágeis e soft skills.
+>Toda a estutura do projeto com as orientações, requisitos, protótipo e kanban foram fornecidos pela [Trybe](https://www.betrybe.com/)
+
+<br />
+
 ---
+
+<br />
 
 ## 🛠 Tecnologias
 - <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">
@@ -267,8 +272,9 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 - Tutorial de como [Instalar NPM no Linux](http://devfuria.com.br/nodejs/instalando-npm/)
 - Tutorial de como [Instalar NPM no Windows](https://dicasdejavascript.com.br/instalacao-do-nodejs-e-npm-no-windows-passo-a-passo/)
 
-**Nota:** Este projeto é uma simulação de um APP Mobile e não está otimizado para web e a resolução ideal para visualizá-lo é 360 x 800.
-Se estiver utilizando o Chrome, pressione a tecla F12 e depois CTRL + SHIFT + M para abrir o Device Toolbar e aplicar uma resolução customizada.
+>**NOTA:** <br />
+>Este projeto é uma simulação de um APP Mobile e não está otimizado para web e a resolução ideal para visualizá-lo é 360 x 800.
+>Se estiver utilizando o Chrome, pressione a tecla F12 e depois CTRL + SHIFT + M para abrir o Device Toolbar e aplicar uma resolução customizada.
 
 ### 🚀 Rodando a aplicação localmente
 
