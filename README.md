@@ -31,7 +31,7 @@ Possui uma estrutura simples, detalhada e prática que dá o poder ao usuário d
 
 Para utilizar o usuário se cadastra e cria um perfil e o acessa fazendo login com email e senha.
 Ao fazer login será direcionado á pagina principal com receitas de comida.
-As receitas podem ser favoritadas e compartilhadas. Caso ainda não tenha decorado será muito fácil encontrar AQUELA receita e prepará-la novamente.
+As receitas podem ser favoritadas e compartilhadas. Caso ainda não tenha decorado será muito fácil encontrar **AQUELA** receita e prepará-la novamente.
 
 Ao clicar em uma receita será redirecionado para uma página onde há uma explicação detalhada de como preparar esta receita e também um vídeo tutorial.
 
